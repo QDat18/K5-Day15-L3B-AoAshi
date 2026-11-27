@@ -1,33 +1,53 @@
-# AI SPEC — [Tên lát cắt] · Nhóm [tên nhóm] · Phòng [XXX] · Zone [X]
+# AI SPEC — Khiếu nại đơn đồ ăn giao thiếu món · Nhóm AoAshi · Phòng D304 · Zone 1
 
 > Mốc nộp: §7 chốt chuẩn "đạt" tại **CP2 19:30 Thứ Sáu 27/11** · §0–§7 nộp **CP3 10:00 Thứ Bảy 28/11** · đủ §0–§10 **CP4 14:30 Thứ Bảy 28/11** · §10 changelog ghi tiếp đến **23:59 Thứ Bảy 28/11**.
 > Đầu mỗi mục ghi bước guide (`02-guide.md` trong repo đề) chỉ cách điền. Mỗi mục ngắn, có số và nguồn; chi tiết để ở file được trỏ tới. Xoá dòng hướng dẫn trong ngoặc vuông khi điền xong.
 
-Track: [ ] A · [ ] B · [ ] C · [ ] D · [ ] E — bài toán: [đề gợi ý trong file track, hoặc bài toán nhóm tự mở rộng] __
-Data BTC cấp đã dùng (nếu có — không commit nguyên file): __
+Track: [ ] A · [ ] B · [ ] C · [x] D · [ ] E — bài toán: người đặt đồ ăn qua app nhận đơn bị thiếu món, muốn khiếu nại để lấy lại tiền món đó nhưng không rõ bước tiếp theo, phải chờ lâu hoặc bỏ cuộc.
+Data BTC cấp đã dùng (nếu có — không commit nguyên file): Không dùng.
 
 ## §0. Hiện tại việc này diễn ra thế nào *(guide 1.1)*
-- Luồng hiện tại của việc này, trong khoá hoặc trên app thật (3–5 bước; ảnh chụp từ tài khoản của mình, đã che thông tin):
-- Công cụ / AI đang được dùng cho việc này (nếu có) + nguồn. Không kiểm được thì ghi "chưa kiểm":
+- Luồng hiện tại trên app giao đồ ăn (ShopeeFood, GrabFood…), tổng hợp từ `evidence/interviews/P1.md`–`P3.md`:
+  1. Mở túi đồ ăn, phát hiện thiếu món (P1: thiếu topping, hộp canh · P2: thiếu khoai tây chiên trong combo · P3: đơn nhóm 5–6 món, quán hay đóng thiếu).
+  2. Chụp ảnh túi và hoá đơn dán trên túi, nếu còn. P2 đã vứt bill nên không có bằng chứng để nộp.
+  3. Tìm mục Trợ giúp / form khiếu nại trên app, hoặc gọi tài xế / quán (P2). P3 không biết bấm vào đâu: "giao diện khiếu nại giấu kỹ quá, tìm mãi mới ra".
+  4. Tự gõ lại mã đơn và tên món thiếu, nhắn CSKH. P1 qua bot trước rồi mới gặp nhân viên. P3 phải lật lại lịch sử đơn để dò món thiếu rồi gõ tay từng chữ, gửi qua mục Trợ giúp và nhắn thêm CSKH.
+  5. Chờ phản hồi rồi nhận kết quả: P1 chờ ~20 phút, được voucher thấp hơn giá món · P3 hơn 30 phút (tính cả chờ duyệt) mới được hoàn đúng giá trị món thiếu về ví · P2 loay hoay ~10 phút rồi bỏ cuộc, mất ~25.000đ.
+- Ảnh chụp từ tài khoản của nhóm (đã che thông tin):  ![Mục trợ giúp trên app](assets/p1-tro-giup.png) hình ảnh của p1
+- Công cụ / AI đang được dùng: gemini dùng tạo google doc, deekseek dùng cho llm
 
 ## §1. Người dùng & bằng chứng *(guide 1.1, 1.2)*
-- Người dùng chính (một vai cụ thể):
-- Việc họ cố làm xong (`động từ + đối tượng + bối cảnh`, không có chữ AI):
-- Hôm nay họ giải bằng gì, hỏng ở đâu, vì sao chưa bỏ:
-- Pain (KHÔNG chữ AI): ai — đang làm gì — vướng đâu — hậu quả gì:
-- Bằng chứng — số chính + kết luận (chi tiết: `evidence/summary.md`): __
+- Người dùng chính (một vai cụ thể): người đặt đồ ăn qua app, vừa nhận đơn và thấy thiếu món.
+- Việc họ cố làm xong (`động từ + đối tượng + bối cảnh`, không có chữ AI): đòi lại tiền món bị thiếu ngay sau khi nhận đơn đồ ăn giao qua app.
+- Hôm nay họ giải bằng gì, hỏng ở đâu, vì sao chưa bỏ: nhắn qua mục Trợ giúp / CSKH của app, hoặc gọi tài xế / quán. Hỏng ở chỗ: khó tìm form khiếu nại (P3), phải chờ nhân viên lâu và không biết bước tiếp theo (P1), app đòi ảnh hoá đơn đã vứt (P2), phải tự nhớ và gõ lại tên món, mã đơn (P1, P3), được hoàn thấp hơn giá món (P1). Chưa bỏ vì vẫn muốn lấy lại tiền món đã trả; khi món rẻ thì nhiều người bỏ luôn (P2).
+- Pain (KHÔNG chữ AI): người đặt đồ ăn qua app mở đơn ra thấy thiếu món, muốn khiếu nại nhưng khó tìm chỗ khiếu nại, phải tự gõ lại thông tin và chờ 10 đến hơn 30 phút không rõ bước tiếp theo, nên hoặc bỏ cuộc mất tiền món đó, hoặc chỉ nhận voucher thấp hơn giá món.
+- Bằng chứng — số chính + kết luận (chi tiết: `evidence/summary.md`):
+  - Phỏng vấn: 3/3 người bị thiếu món trong 1 tháng qua (P1 2 lần, P2 1 lần, P3 2 lần). Lần gần nhất mất ~10 phút (bỏ cuộc) đến hơn 30 phút. 2/3 người không lấy lại đủ tiền (P1 voucher thấp hơn giá món, P2 bỏ cuộc); P3 được hoàn đủ nhưng mất hơn 30 phút.
+  - Khảo sát (`evidence/survey/results.csv`, n = 21): 9/21 người bị thiếu món ≥1 lần trong 1 tháng qua, tổng 14 lần. Lần gần nhất xử lý: 9/16 người mất ≥15 phút (6 người 15–30 phút, 3 người trên 30 phút) · 7/15 người khiếu nại chỉ được giải quyết một phần.
+  - Kết luận: giả thuyết "khách khó khiếu nại và phải chờ lâu" được ủng hộ ở cả phỏng vấn và khảo sát. Số review giao đồ ăn của Huy (`evidence/data-mining.md`) bổ sung sau.
+  - Giới hạn: 2/21 người chưa từng đặt đồ ăn vẫn nằm trong mẫu số 21.
 
 ## §2. Impact & quyết định chọn *(guide 1.3)*
 
 | Hướng | Bao nhiêu người gặp | Bao nhiêu lần / tháng | Mỗi lần tốn gì | Impact / tháng | Làm kịp không | Chọn? |
 |---|---|---|---|---|---|---|
-|  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |
+| Khiếu nại đơn giao **thiếu món** | 9/21 người khảo sát · 3/3 người phỏng vấn (trong 1 tháng qua) | 14 lần / 9 người (TB 1,56) | ~17 phút *(tự ước tính, giữa các khoảng câu 6)* + tiền món thiếu không lấy lại được (P2 ~25.000đ) | ≈ 238 phút ≈ 4 giờ trong 21 người | Kịp — bản chạy thử đã có, đơn và món kiểm được bằng dữ liệu đơn | ✅ |
+| Khiếu nại **sai món** | chưa đo | chưa đo | chưa đo | chưa đo | Khó — phải đối chiếu ảnh món nhận được, §4 đã ghi không đọc ảnh | ❌ |
+| Khiếu nại **giao trễ** | chưa đo | chưa đo | chưa đo | chưa đo | Khó — cần dữ liệu thời gian giao thật của app, nhóm không có | ❌ |
 
-- **Impact / tháng** của hướng chọn = __ người × __ lần × __ phút = __ — nguồn từng thừa số: __ (không có nguồn thì ghi rõ *(tự ước tính)*)
-- Hướng ĐÃ LOẠI + vì sao (giữ lại, đừng xoá):
-- Số lần / tháng của từng kiểu người dùng (dùng cho persona ở §8):
+- **Impact / tháng** của hướng chọn = 9 người × 1,56 lần × ~17 phút ≈ 238 phút (≈ 4 giờ) / tháng trong mẫu 21 người — nguồn từng thừa số: 9 người và 14 lần từ câu 4 khảo sát · 17 phút là trung bình giữa các khoảng của câu 6 (dưới 5 → 2,5 · 5–15 → 10 · 15–30 → 22,5 · trên 30 → 30) trên 16 người có xử lý *(tự ước tính)*. Chưa tính tiền món bị mất. Quy mô người dùng thật để ở §8.
+- Hướng ĐÃ LOẠI + vì sao (giữ lại, đừng xoá): **sai món** — phải xác minh món nhận được qua ảnh, ngoài phạm vi lát cắt (§4 "không đọc ảnh"). **Giao trễ** — cần dữ liệu thời gian giao thật mà nhóm không có, và lỗi nằm ở vận hành giao hàng hơn là ở bước khiếu nại. Cả hai chưa có số đo; khi gặp trong tin khách thì bản chạy thử chuyển nhân viên. *(nháp — nhóm chốt ở họp 08:00)*
+- Số lần / tháng của từng kiểu người dùng (dùng cho persona ở §8) — số lần **bị thiếu món** / tháng (câu 4) theo tần suất đặt (câu 2), khảo sát n = 21:
+
+  | Kiểu người dùng (câu 2) | n | Số lần thiếu món / tháng (TB) |
+  |---|---|---|
+  | Hầu như ngày nào cũng đặt | 3 | 2,0 (0 · 1 · 5) |
+  | Vài lần mỗi tuần | 7 | 0,86 |
+  | Vài lần mỗi tháng | 3 | 0 |
+  | Hiếm khi đặt (vài tháng 1 lần) | 6 | 0,33 |
+  | Chưa bao giờ đặt | 2 | 0 — không phải người dùng, bỏ khỏi persona |
+
+  n nhỏ, mỗi nhóm chỉ 3–7 người. Phỏng vấn khớp chiều này: P1 (ngày nào cũng đặt) 2 lần / tháng · P2 (3–4 đơn / tuần) 1 lần · P3 (vài lần / tuần, đặt đơn nhóm) 2 lần.
 
 ## §3. Giải pháp tương tự *(guide 2.1)*
 - [sản phẩm / tính năng gần giống]: một điều đáng học · một điều đáng né · mình khác gì
