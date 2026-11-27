@@ -30,7 +30,10 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): __
 - Số lần / tháng của từng kiểu người dùng (dùng cho persona ở §8):
 
 ## §3. Giải pháp tương tự *(guide 2.1)*
-- [sản phẩm / tính năng gần giống]: một điều đáng học · một điều đáng né · mình khác gì
+- **Giải pháp tham khảo:** ShopeeFood hướng dẫn khách mở chi tiết đơn cần hỗ trợ để gửi báo cáo. Lối vào hỗ trợ khác nhau tùy đơn đang giao hay đã giao. [Hướng dẫn khiếu nại đơn hàng của ShopeeFood](https://help.shopee.vn/portal/4/article/79520-%5BShopeeFood%5D-T%C3%B4i-mu%E1%BB%91n-khi%E1%BA%BFu-n%E1%BA%A1i-%C4%91%C6%A1n-h%C3%A0ng)
+- **Điều đáng học:** Gắn khiếu nại với đúng đơn để có căn cứ đối chiếu món, số lượng và giá.
+- **Điều cần tránh trong AoAshi:** Bắt khách tự tìm mục hỗ trợ qua nhiều bước khi họ đã có thể mô tả món bị thiếu. Nếu thiếu thông tin để tra đơn, hỏi rõ khách cần bổ sung gì.
+- **AoAshi khác gì:** Bản chạy thử nhận lời báo thiếu bằng văn bản, tra đơn giả lập rồi đề xuất hoàn phần thiếu, hỏi thêm hoặc tạo phiếu nháp chuyển nhân viên. Code tính số tiền từ đơn giá và số lượng thiếu, kiểm tra hạn mức giả lập. Đề xuất hoàn tiền cần nhân viên duyệt.
 
 ## §4. Thiết kế *(guide 2.2, 3.2)*
 - **Lát cắt MỘT CÂU** (1 người dùng · 1 việc · 1 quyết định AI · 1 kết quả): Một khách nhận đơn thiếu món gửi khiếu nại, AI quyết định đề xuất hoàn tiền món thiếu, hỏi thêm hay chuyển cho nhân viên, để khách biết bước tiếp theo.
@@ -101,7 +104,7 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): __
 
 | Thời điểm | Đổi gì | Vì sao (trỏ về câu thử / lỗi / bằng chứng nào) |
 |---|---|---|
-|  |  |  |
+| 27/11/2026 21:49 | Bổ sung §3 về luồng khiếu nại ShopeeFood. | Đối chiếu cách gắn báo cáo với đơn hàng và làm rõ bước xử lý mà AoAshi đề xuất cho khách. |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 
