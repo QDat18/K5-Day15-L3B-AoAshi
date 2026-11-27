@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1640" height="1900" viewBox="0 0 1640 1900" font-family="Segoe UI, Arial, sans-serif"><defs><marker id="k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#111111" stroke-width="1.5"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#b42318" stroke-width="1.5"/></marker><marker id="y" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#8a5a00" stroke-width="1.5"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#116329" stroke-width="1.5"/></marker></defs><rect width="100%" height="100%" fill="#ffffff"/><rect x="20" y="20" width="230" height="1860" fill="none" stroke="#111111" stroke-width="1.4"/>
+<line x1="20" y1="68" x2="250" y2="68" stroke="#111111" stroke-width="1.4"/>
+<text x="135" y="44.0" font-size="19" font-weight="700" fill="#111111" text-anchor="middle" dominant-baseline="central">Khách hàng</text>
+<rect x="250" y="20" width="1140" height="1860" fill="none" stroke="#111111" stroke-width="1.4"/>
+<line x1="250" y1="68" x2="1390" y2="68" stroke="#111111" stroke-width="1.4"/>
+<text x="820" y="44.0" font-size="19" font-weight="700" fill="#111111" text-anchor="middle" dominant-baseline="central">Hệ thống: answer(text)</text>
+<rect x="1390" y="20" width="230" height="1860" fill="none" stroke="#111111" stroke-width="1.4"/>
+<line x1="1390" y1="68" x2="1620" y2="68" stroke="#111111" stroke-width="1.4"/>
+<text x="1505" y="44.0" font-size="19" font-weight="700" fill="#111111" text-anchor="middle" dominant-baseline="central">Mô hình AI</text>
+<circle cx="135" cy="100" r="13" fill="#111111"/>
+<polyline points="135,113 135,136" fill="none" stroke="#111111" stroke-width="1.8" marker-end="url(#k)"/>
+<rect x="35" y="136" width="200" height="60" rx="22" fill="#ffffff" stroke="#111111" stroke-width="1.8"/>
+<text x="135" y="154.5" font-size="17" font-weight="400" fill="#111111" text-anchor="middle" dominant-baseline="central">Gửi tin khiếu nại</text>
+<text x="135" y="177.5" font-size="17" font-weight="400" fill="#111111" text-anchor="middle" dominant-baseline="central">thiếu món</text>
+<polyline points="235,166 655,166" fill="none" stroke="#111111" stroke-width="1.8" marker-end="url(#k)"/>
+<rect x="655" y="136" width="330" height="60" rx="22" fill="#ffffff" stroke="#111111" stroke-width="1.8"/>
+<text x="820" y="166.0" font-size="17" font-weight="400" fill="#111111" text-anchor="middle" dominant-baseline="central">Tìm mã đơn trong tin</text>
+<polyline points="820,196 820,234" fill="none" stroke="#111111" stroke-width="1.8" marker-end="url(#k)"/>
+<polygon points="798,256 820,234 842,256 820,278" fill="#ffffff" stroke="#111111" stroke-width="1.8"/>
+<polyline points="820,278 820,336" fill="none" stroke="#111111" stroke-width="1.8" marker-end="url(#k)"/>
+<text x="834" y="306.0" font-size="17" font-weight="400" fill="#111111" text-anchor="start" dominant-baseline="central">[có đúng 1 mã]</text>
+<rect x="655" y="336" width="330" height="60" rx="22" fill="#ffffff" stroke="#111111" stroke-width="1.8"/>
+<text x="820" y="366.0" font-size="17" font-weight="400" fill="#111111" text-anchor="middle" dominant-baseline="central">get_order(mã đơn)</text>
+<polyline points="842,256 1100,256 1100,442 838,442" fill="none" stroke="#111111" stroke-width="1.8" marker-end="url(#k)"/>
+<text x="1112" y="328.5" font-size="17" font-weight="400" fill="#111111" text-anchor="start" dominant-baseline="central">[không có mã,</text>
+<text x="1112" y="351.5" font-size="17" font-weight="400" fill="#111111" text-anchor="start" dominant-baseline="central">hoặc từ 2 mã]</text>
+<polyline points="820,396 820,424" fill="none" stroke="#111111" stroke-width="1.8" marker-end="url(#k)"/>
+<polygon points="802,442 820,424 838,442 820,460" fill="#ffffff" stroke="#111111" stroke-width="1.8"/>
+<polyline points="820,460 820,486" fill="none" stroke="#111111" stroke-width="1.8" marker-end="url(#k)"/>
+<rect x="655" y="486" width="330" height="60" rx="22" fill="#ffffff" stroke="#111111" stroke-width="1.8"/>
+<text x="820" y="516.0" font-size="17" font-weight="400" fill="#111111" text-anchor="middle" dominant-baseline="central">get_policy()</text>
+<polyline points="985,516 1510,516 1510,560" fill="none" stroke="#111111" stroke-width="1.8" marker-end="url(#k)"/>
+<rect x="1410" y="560" width="200" height="90" rx="22" fill="#ffffff" stroke="#111111" stroke-width="1.8"/>
+<text x="1510" y="582.0" font-size="17" font-weight="400" fill="#111111" text-anchor="middle" dominant-baseline="central">Phân loại và</text>
+<text x="1510" y="605.0" font-size="17" font-weight="400" fill="#111111" text-anchor="middle" dominant-baseline="central">trích món thiếu,</text>
+<text x="1510" y="628.0" font-size="17" font-weight="400" fill="#111111" text-anchor="middle" dominant-baseline="central">trả về JSON</text>
+<polyline points="1510,650 1510,710 985,710" fill="none" stroke="#111111" stroke-width="1.8" marker-end="url(#k)"/>
+<rect x="655" y="680" width="330" height="60" rx="22" fill="#ffffff" stroke="#111111" stroke-width="1.8"/>
+<text x="820" y="710.0" font-size="17" font-weight="400" fill="#111111" text-anchor="middle" dominant-baseline="central">Kiểm đầu ra AI và đơn hàng</text>
+<polyline points="820,740 820,818" fill="none" stroke="#111111" stroke-width="1.8" marker-end="url(#k)"/>
+<polygon points="798,840 820,818 842,840 820,862" fill="#ffffff" stroke="#111111" stroke-width="1.8"/>
+<polyline points="798,840 420,840 420,1108" fill="none" stroke="#b42318" stroke-width="1.8" marker-end="url(#r)"/>
+<text x="610" y="788.5" font-size="17" font-weight="400" fill="#b42318" text-anchor="middle" dominant-baseline="central">[JSON không hợp lệ, hoặc</text>
+<text x="610" y="811.5" font-size="17" font-weight="400" fill="#b42318" text-anchor="middle" dominant-baseline="central">AI chọn chuyển nhân viên]</text>
+<polyline points="842,840 1220,840 1220,1108" fill="none" stroke="#8a5a00" stroke-width="1.8" marker-end="url(#y)"/>
+<text x="1025" y="765.0" font-size="17" font-weight="400" fill="#8a5a00" text-anchor="middle" dominant-baseline="central">[không thuộc nhánh trái, và:</text>
+<text x="1025" y="788.0" font-size="17" font-weight="400" fill="#8a5a00" text-anchor="middle" dominant-baseline="central">nhiều mã / không thấy đơn /</text>
+<text x="1025" y="811.0" font-size="17" font-weight="400" fill="#8a5a00" text-anchor="middle" dominant-baseline="central">AI chọn hỏi thêm]</text>
+<polyline points="820,862 820,976" fill="none" stroke="#116329" stroke-width="1.8" marker-end="url(#g)"/>
+<text x="834" y="906.5" font-size="17" font-weight="400" fill="#116329" text-anchor="start" dominant-baseline="central">[AI đề xuất hoàn</text>
+<text x="834" y="929.5" font-size="17" font-weight="400" fill="#116329" text-anchor="start" dominant-baseline="central">và có đúng 1 đơn]</text>
+<rect x="655" y="976" width="330" height="64" rx="22" fill="#ffffff" stroke="#111111" stroke-width="1.8"/>
+<text x="820" y="996.5" font-size="17" font-weight="400" fill="#111111" text-anchor="middle" dominant-baseline="central">Kiểm trạng thái đơn</text>
+<text x="820" y="1019.5" font-size="17" font-weight="400" fill="#111111" text-anchor="middle" dominant-baseline="central">và món AI nêu</text>
+<polyline points="820,1040 820,1108" fill="none" stroke="#111111" stroke-width="1.8" marker-end="url(#k)"/>
+<polygon points="798,1130 820,1108 842,1130 820,1152" fill="#ffffff" stroke="#111111" stroke-width="1.8"/>
+<polygon points="398,1130 420,1108 442,1130 420,1152" fill="#ffffff" stroke="#111111" stroke-width="1.8"/>
+<polygon points="1198,1130 1220,1108 1242,1130 1220,1152" fill="#ffffff" stroke="#111111" stroke-width="1.8"/>
+<polyline points="798,1130 442,1130" fill="none" stroke="#b42318" stroke-width="1.8" marker-end="url(#r)"/>
+<text x="620" y="1102.0" font-size="17" font-weight="400" fill="#b42318" text-anchor="middle" dominant-baseline="central">[đơn đã hoàn hoặc chưa giao]</text>
+<polyline points="842,1130 1198,1130" fill="none" stroke="#8a5a00" stroke-width="1.8" marker-end="url(#y)"/>
+<text x="1022" y="1078.5" font-size="17" font-weight="400" fill="#8a5a00" text-anchor="middle" dominant-baseline="central">[đơn đã giao, chưa hoàn,</text>
+<text x="1022" y="1101.5" font-size="17" font-weight="400" fill="#8a5a00" text-anchor="middle" dominant-baseline="central">nhưng AI không nêu món]</text>
+<polyline points="820,1152 820,1270" fill="none" stroke="#116329" stroke-width="1.8" marker-end="url(#g)"/>
+<text x="834" y="1193.5" font-size="17" font-weight="400" fill="#116329" text-anchor="start" dominant-baseline="central">[đơn đã giao, chưa hoàn,</text>
+<text x="834" y="1216.5" font-size="17" font-weight="400" fill="#116329" text-anchor="start" dominant-baseline="central">và AI có nêu món]</text>
+<rect x="655" y="1270" width="330" height="64" rx="22" fill="#ffffff" stroke="#111111" stroke-width="1.8"/>
+<text x="820" y="1290.5" font-size="17" font-weight="400" fill="#111111" text-anchor="middle" dominant-baseline="central">Đối chiếu món với đơn,</text>
+<text x="820" y="1313.5" font-size="17" font-weight="400" fill="#111111" text-anchor="middle" dominant-baseline="central">tự tính số tiền</text>
+<polyline points="820,1334 820,1438" fill="none" stroke="#111111" stroke-width="1.8" marker-end="url(#k)"/>
+<polygon points="798,1460 820,1438 842,1460 820,1482" fill="#ffffff" stroke="#111111" stroke-width="1.8"/>
+<polygon points="398,1460 420,1438 442,1460 420,1482" fill="#ffffff" stroke="#111111" stroke-width="1.8"/>
+<polyline points="420,1152 420,1438" fill="none" stroke="#b42318" stroke-width="1.8" marker-end="url(#r)"/>
+<polyline points="798,1460 442,1460" fill="none" stroke="#b42318" stroke-width="1.8" marker-end="url(#r)"/>
+<text x="620" y="1385.0" font-size="17" font-weight="400" fill="#b42318" text-anchor="middle" dominant-baseline="central">[món không có trong đơn,</text>
+<text x="620" y="1408.0" font-size="17" font-weight="400" fill="#b42318" text-anchor="middle" dominant-baseline="central">vượt số đã đặt,</text>
+<text x="620" y="1431.0" font-size="17" font-weight="400" fill="#b42318" text-anchor="middle" dominant-baseline="central">hoặc tiền &gt; 100.000đ]</text>
+<polyline points="820,1482 820,1580" fill="none" stroke="#116329" stroke-width="1.8" marker-end="url(#g)"/>
+<text x="834" y="1508.5" font-size="17" font-weight="400" fill="#116329" text-anchor="start" dominant-baseline="central">[món khớp đơn</text>
+<text x="834" y="1531.5" font-size="17" font-weight="400" fill="#116329" text-anchor="start" dominant-baseline="central">và tiền ≤ 100.000đ]</text>
+<polyline points="420,1482 420,1580" fill="none" stroke="#b42318" stroke-width="1.8" marker-end="url(#r)"/>
+<polyline points="1220,1152 1220,1580" fill="none" stroke="#8a5a00" stroke-width="1.8" marker-end="url(#y)"/>
+<rect x="270" y="1580" width="300" height="66" rx="22" fill="#ffeceb" stroke="#b42318" stroke-width="1.8"/>
+<text x="420" y="1601.5" font-size="17" font-weight="400" fill="#111111" text-anchor="middle" dominant-baseline="central">escalate_to_staff(lý do)</text>
+<text x="420" y="1624.5" font-size="17" font-weight="400" fill="#111111" text-anchor="middle" dominant-baseline="central">Tạo phiếu nháp</text>
+<rect x="655" y="1580" width="330" height="66" rx="22" fill="#e3f7e8" stroke="#116329" stroke-width="1.8"/>
+<text x="820" y="1601.5" font-size="17" font-weight="400" fill="#111111" text-anchor="middle" dominant-baseline="central">draft_refund(mã, món, tiền)</text>
+<text x="820" y="1624.5" font-size="17" font-weight="400" fill="#111111" text-anchor="middle" dominant-baseline="central">Tạo bản nháp chờ duyệt</text>
+<rect x="1070" y="1580" width="300" height="66" rx="22" fill="#fff6d6" stroke="#8a5a00" stroke-width="1.8"/>
+<text x="1220" y="1601.5" font-size="17" font-weight="400" fill="#111111" text-anchor="middle" dominant-baseline="central">Yêu cầu khách bổ sung</text>
+<text x="1220" y="1624.5" font-size="17" font-weight="400" fill="#111111" text-anchor="middle" dominant-baseline="central">thông tin</text>
+<polyline points="420,1646 420,1692 798,1692" fill="none" stroke="#111111" stroke-width="1.8" marker-end="url(#k)"/>
+<polyline points="1220,1646 1220,1692 842,1692" fill="none" stroke="#111111" stroke-width="1.8" marker-end="url(#k)"/>
+<polyline points="820,1646 820,1670" fill="none" stroke="#111111" stroke-width="1.8" marker-end="url(#k)"/>
+<polygon points="798,1692 820,1670 842,1692 820,1714" fill="#ffffff" stroke="#111111" stroke-width="1.8"/>
+<polyline points="820,1714 820,1740" fill="none" stroke="#111111" stroke-width="1.8" marker-end="url(#k)"/>
+<rect x="655" y="1740" width="330" height="56" rx="22" fill="#ffffff" stroke="#111111" stroke-width="1.8"/>
+<text x="820" y="1768.0" font-size="17" font-weight="400" fill="#111111" text-anchor="middle" dominant-baseline="central">Trả lời theo mẫu cố định</text>
+<polyline points="655,1768 235,1768" fill="none" stroke="#111111" stroke-width="1.8" marker-end="url(#k)"/>
+<rect x="35" y="1738" width="200" height="60" rx="22" fill="#ffffff" stroke="#111111" stroke-width="1.8"/>
+<text x="135" y="1768.0" font-size="17" font-weight="400" fill="#111111" text-anchor="middle" dominant-baseline="central">Nhận phản hồi</text>
+<polyline points="135,1798 135,1820" fill="none" stroke="#111111" stroke-width="1.8" marker-end="url(#k)"/>
+<circle cx="135" cy="1835" r="15" fill="#ffffff" stroke="#111111" stroke-width="2"/>
+<circle cx="135" cy="1835" r="9" fill="#111111"/>
+<path d="M1405 1570H1588L1606 1588V1730H1405Z" fill="#fffbe6" stroke="#111111" stroke-width="1.2"/>
+<path d="M1588 1570V1588H1606" fill="none" stroke="#111111" stroke-width="1.2"/>
+<text x="1505" y="1606.0" font-size="16" font-weight="400" fill="#111111" text-anchor="middle" dominant-baseline="central">Ghi chú:</text>
+<text x="1505" y="1628.0" font-size="16" font-weight="400" fill="#111111" text-anchor="middle" dominant-baseline="central">nhân viên duyệt</text>
+<text x="1505" y="1650.0" font-size="16" font-weight="400" fill="#111111" text-anchor="middle" dominant-baseline="central">CHƯA được xây.</text>
+<text x="1505" y="1672.0" font-size="16" font-weight="400" fill="#111111" text-anchor="middle" dominant-baseline="central">Không gửi phiếu,</text>
+<text x="1505" y="1694.0" font-size="16" font-weight="400" fill="#111111" text-anchor="middle" dominant-baseline="central">không hoàn tiền.</text></svg>

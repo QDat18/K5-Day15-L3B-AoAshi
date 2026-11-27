@@ -8,6 +8,7 @@ README của nhóm có mục "Dùng AI vào việc gì" (2–3 dòng, bắt bu�
 |---|---|---|---|---|
 | Code bản chạy thử | Claude Code | Viết `codebase/agent.py`, `tools.py`, `rules.py`, phần gọi model trong `ai.py` (theo `docs/connect-model.md`; DeepSeek theo tài liệu chính thức) và test trong `tests/`. Model vẫn ở chế độ giả, chưa gọi model thật | Đạt duyệt thiết kế; code chưa ghi nhận người kiểm | Hoàng Quang Đạt |
 | Prompt / thiết kế lời gọi mô hình | Claude Code | Soạn thiết kế workflow, luật chặn rủi ro và bản đầu của `SYSTEM`. Chưa thử với model thật | Đạt duyệt thiết kế; chưa ghi nhận người kiểm nội dung `SYSTEM` | Hoàng Quang Đạt |
+| Sơ đồ kiến trúc (`assets/so_do_kien_truc.svg`) | Claude Code | Vẽ sơ đồ hoạt động theo `codebase/agent.py`, `rules.py` bằng script tạm; so điều kiện gộp trên sơ đồ với `rules.decide` ở 154 tổ hợp đầu vào (chỉ so quyết định cuối, không so `LY_DO`) | Đạt xem hình, yêu cầu vẽ lại và chốt bản này | Hoàng Quang Đạt |
 | Đào data (viết script đếm, gợi ý nhãn) | Chưa dùng cho bằng chứng | Mới gợi ý nguồn review và cách đếm, chưa lấy review nào | Chưa có dòng nào để kiểm | Võ Thanh Huy |
 | Rà câu hỏi phỏng vấn / khảo sát | Claude Code | Gợi ý câu hỏi nháp khi bàn phạm vi. Chưa gửi bộ câu hỏi nào | Chưa rà | Đỗ Anh Thư |
 | Viết câu thử (benchmark) | Chưa dùng | Chưa viết câu thử của nhóm (file còn dòng mẫu của khung) | Mỗi câu thử có `source`; câu thử AI viết được ghi rõ | Vương Trường Giang |
