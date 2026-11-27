@@ -33,28 +33,34 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): __
 - [sản phẩm / tính năng gần giống]: một điều đáng học · một điều đáng né · mình khác gì
 
 ## §4. Thiết kế *(guide 2.2, 3.2)*
-- **Lát cắt MỘT CÂU** (1 người dùng · 1 việc · 1 quyết định AI · 1 kết quả):
-- Không làm (≥3 điều):
-- **Sơ đồ** (ảnh / Mermaid / draw.io): [chèn ở đây]
-- **Hình dạng:** [ ] workflow cố định · [ ] một agent · [ ] nhiều agent — 2 dòng lý do, và vì sao **không** chọn hình dạng phức tạp hơn:
+- **Lát cắt MỘT CÂU** (1 người dùng · 1 việc · 1 quyết định AI · 1 kết quả): Một khách nhận đơn thiếu món gửi khiếu nại, AI quyết định đề xuất hoàn tiền món thiếu, hỏi thêm hay chuyển cho nhân viên, để khách biết bước tiếp theo.
+- Không làm (≥3 điều): không xử lý sai món, giao trễ, chất lượng món, ngộ độc (chỉ chuyển nhân viên) · không đọc ảnh · không lưu lịch sử hội thoại · không hoàn tiền thật, không nối app thật.
+- **Sơ đồ** (sơ đồ hoạt động UML; các luật liền nhau cùng kết quả được gộp vào một nút quyết định):
+
+![Sơ đồ hoạt động](assets/so_do_kien_truc.svg)
+
+- **Hình dạng:** [x] workflow cố định · [ ] một agent · [ ] nhiều agent — Mọi tin đi cùng một đường: đọc đơn, AI quyết định, code kiểm. AI không cần tự chọn công cụ, nên agent chỉ thêm lượt gọi model và khó đo hơn.
 - **AI dựa vào đâu** — mỗi công cụ (khớp `codebase/tools.py`):
 
   | Công cụ | Input | Output | Tác động ra ngoài? |
   |---|---|---|---|
-  |  |  |  |  |
+  | get_order | mã đơn | đơn giả lập, hoặc không có | Không (chỉ đọc) |
+  | get_policy | không | hạn mức hoàn giả lập | Không (chỉ đọc) |
+  | draft_refund | mã đơn, món, số tiền | bản nháp chờ nhân viên duyệt | Không |
+  | escalate_to_staff | mã lý do, mã đơn khách nêu, món khách nêu, tin của khách | phiếu nháp, giữ nguyên văn tin (tối đa 1000 ký tự) | Không |
 
-- **Mức tự động:** [ ] AI gợi ý, người quyết · [ ] AI tự làm khi chắc, chuyển người khi không · [ ] AI tự làm — lý do (sai thì ai chịu gì, sửa đắt hay rẻ):
-- **Chỗ chặn rủi ro** (rủi ro lớn nhất của lát cắt bị chặn ở đâu, bằng gì):
-- **Chỗ người duyệt** (việc AI không được tự làm):
+- **Mức tự động:** [x] AI gợi ý, người quyết · [ ] AI tự làm khi chắc, chuyển người khi không · [ ] AI tự làm — Hoàn sai thì quán mất tiền, từ chối sai thì khách chịu thiệt. Bản chạy thử chỉ tạo bản nháp.
+- **Chỗ chặn rủi ro** (rủi ro lớn nhất của lát cắt bị chặn ở đâu, bằng gì): đề xuất hoàn tiền sai bị chặn bằng code trong `codebase/rules.py`. Code chỉ hạ quyết định của AI, không nâng. Số tiền do code tính từ đơn. Chặn món không có trong đơn, vượt số lượng đã đặt, vượt hạn mức 100.000đ, đơn đã hoàn hoặc chưa giao. Nhiều mã đơn thì hỏi lại. AI trả sai định dạng thì chuyển nhân viên. Câu gửi khách lấy từ mẫu; chữ duy nhất chèn thêm là tên món có sẵn trong tin của khách, và cụm có từ "đã, hoàn, tiền, bồi, duyệt, gửi" bị bỏ.
+- **Chỗ người duyệt** (việc AI không được tự làm): AI không được tự hoàn tiền hay tự gửi phiếu. Mọi đề xuất hoàn tiền phải chờ nhân viên duyệt.
 - **Nguyên tắc thiết kế** (≥3, bắt buộc G10):
 
   | Nguyên tắc | Chỗ cụ thể trên sơ đồ / trong bản chạy thử |
   |---|---|
-  | G10 — thu hẹp phạm vi khi không chắc |  |
-  |  |  |
-  |  |  |
+  | G10 — thu hẹp phạm vi khi không chắc | Chưa rõ đơn hoặc món thì `hoi_them`; ngoài phạm vi hoặc không khớp đơn thì `chuyen_nhan_vien` |
+  | G1 — nói rõ làm được gì | Câu đề xuất ghi tiền chưa được hoàn, đang chờ nhân viên duyệt |
+  | G11 — giải thích vì sao | Câu đề xuất nêu món, số lượng và số tiền làm căn cứ |
 
-- Phần nào còn giả (công cụ trả dữ liệu giả, model chế độ giả…) — ghi rõ, không giả làm thật:
+- Phần nào còn giả (công cụ trả dữ liệu giả, model chế độ giả…) — ghi rõ, không giả làm thật: model đang ở chế độ giả (đã viết phần nối DeepSeek, chưa gọi thật) · đơn hàng và hạn mức 100.000đ là giả lập · bản nháp và phiếu không được lưu thành hàng đợi, không gửi cho ai · bước nhân viên duyệt chưa được xây · không hoàn tiền.
 
 ## §5. Chỗ khó — 4 lớp + ≥6 kịch bản + 2 tấn công *(guide 2.3)*
 
