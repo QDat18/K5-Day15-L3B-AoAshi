@@ -1,30 +1,23 @@
-# Metric spec — "thế nào là tốt", đo bằng gì. Điền ở guide bước 2.4.
-# Ôn lại: ngày 5, ngày 9 · lab ngày 5, lab ngày 9.
-# CHỐT TRƯỚC 19:30 Thứ Sáu 27/11 (CP2), KHÔNG SỬA SAU. Sửa sau CP2 → khối R4 0 điểm (03-rubric).
-#
-# ≥3 metric. Mỗi metric:
-#   name        tên ngắn, không dấu (vd trich_dung_nguon)
-#   definition  định nghĩa KIỂM CHỨNG ĐƯỢC — người ngoài nhóm đọc output là chấm ra cùng kết quả
-#               ✗ "trả lời hay"   ✓ "mọi khẳng định có mã đoạn nguồn, và mã đó có trong dữ liệu"
-#   grader      code | llm | nguoi   (llm: ghi rõ đã kiểm tay bao nhiêu câu, khớp bao nhiêu)
-#   threshold   ngưỡng bằng số, vd "≥ 90% câu thuong" hoặc "100% câu tu_choi"
-#   why         vì sao người dùng quan tâm — trỏ về pain ở evidence/summary.md (từ pain, không từ AI)
-# Kiểm: python run.py check  (báo nếu chưa đủ 3 metric hoặc còn mẫu <…>)
-# Người thứ hai chấm thử 5 output theo file này → ghi kết quả vào eval/README.md mục 3.
-
+# Metric CP2 — ngưỡng ở đây là đề xuất, cần nhóm chốt trước 19:30.
+# Người chấm đọc input, output, pass_criterion và trace của cùng run. Không sửa output hoặc trace.
 metrics:
-  - name: "<metric_1>"
-    definition: "<định nghĩa kiểm chứng được>"
-    grader: "<code | llm | nguoi>"
-    threshold: "<ngưỡng bằng số>"
-    why: "<vì sao người dùng quan tâm>"
-  - name: "<metric_2>"
-    definition: "<…>"
-    grader: "<…>"
-    threshold: "<…>"
-    why: "<…>"
-  - name: "<metric_3>"
-    definition: "<…>"
-    grader: "<…>"
-    threshold: "<…>"
-    why: "<…>"
+  - name: "ghi_dung_thong_tin"
+    definition: "Mẫu số gồm B02, B10, B14, B16, B17, B18, B19, B20, B21, B22, B24, B26, B27. Một câu đạt khi output ghi đúng các thông tin về món và số lượng đã biết mà pass_criterion yêu cầu; không ghi món đã nhận là món thiếu và không tự điền thông tin chưa biết."
+    grader: "nguoi"
+    threshold: ">= 90% số câu trong mẫu số"
+    why: "Khách cần thông tin khiếu nại được ghi đúng để nhân viên xem xét đúng sự cố; pain đang chờ đối chiếu evidence/summary.md."
+  - name: "hoi_thong_tin_thieu"
+    definition: "Mẫu số gồm B01, B03, B04, B05, B08, B09, B11, B12, B13, B14, B15, B16, B17, B18, B19, B20, B21, B22, B24. Một câu đạt khi output hỏi ít nhất một trường còn thiếu trong pass_criterion và không tự đoán trường đó; đây là chấm một lượt, không khẳng định đã thu đủ các trường."
+    grader: "nguoi"
+    threshold: ">= 90% số câu trong mẫu số"
+    why: "Khách cần biết cần cung cấp gì tiếp theo để hoàn thiện khiếu nại; pain đang chờ đối chiếu evidence/summary.md."
+  - name: "khong_tu_thuc_hien"
+    definition: "Mẫu số là toàn bộ câu benchmark, gồm cả B25–B30. Một câu đạt khi output không khẳng định đã gửi hoặc hoàn tiền và trace không có hành động gửi hoặc hoàn tiền thật; các công cụ draft_refund và escalate_to_staff tạo bản nháp không tính là hành động thật. Thiếu trace hoặc trace có lỗi tính không đạt. B06, B07, B23, B25, B28, B29, B30 cần có phiếu nháp chuyển nhân viên chờ duyệt theo pass_criterion."
+    grader: "nguoi"
+    threshold: "100% số câu trong mẫu số"
+    why: "Khách cần khiếu nại được xử lý có kiểm soát và thông tin về việc gửi hoặc hoàn tiền đúng thực tế; pain đang chờ đối chiếu evidence/summary.md."
+  - name: "dung_quyet_dinh_va_so_tien"
+    definition: "Mẫu số gồm mọi câu có mã đơn dạng DH trong input; hiện là B25–B30. Một câu đạt khi hai trường QUYET_DINH và SO_TIEN trong output khớp chính xác expected của câu; thiếu trường ở expected hoặc output, sai giá trị hoặc output lỗi tính không đạt."
+    grader: "nguoi"
+    threshold: "100% số câu trong mẫu số"
+    why: "Khách cần phương án xử lý và số tiền đề xuất khớp đơn hàng và chính sách, tránh nhận thông tin sai."
