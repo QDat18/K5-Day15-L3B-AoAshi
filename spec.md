@@ -13,8 +13,8 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): Không dù
   3. Tìm mục Trợ giúp / form khiếu nại trên app, hoặc gọi tài xế / quán (P2). P3 không biết bấm vào đâu: "giao diện khiếu nại giấu kỹ quá, tìm mãi mới ra".
   4. Tự gõ lại mã đơn và tên món thiếu, nhắn CSKH. P1 qua bot trước rồi mới gặp nhân viên. P3 phải lật lại lịch sử đơn để dò món thiếu rồi gõ tay từng chữ, gửi qua mục Trợ giúp và nhắn thêm CSKH.
   5. Chờ phản hồi rồi nhận kết quả: P1 chờ ~20 phút, được voucher thấp hơn giá món · P3 hơn 30 phút (tính cả chờ duyệt) mới được hoàn đúng giá trị món thiếu về ví · P2 loay hoay ~10 phút rồi bỏ cuộc, mất ~25.000đ.
-- Ảnh chụp từ tài khoản của nhóm (đã che thông tin):  ![Mục trợ giúp trên app](assets/p1-tro-giup.png) hình ảnh của p1
-- Công cụ / AI đang được dùng: gemini dùng tạo google doc, deekseek dùng cho llm
+- Ảnh minh hoạ một đoạn chat CSKH, nhóm ghi là của P1 (ảnh không có thông tin cá nhân):  ![Đoạn chat chăm sóc khách hàng](assets/p1-tro-giup.png)
+- Công cụ / AI đang được dùng cho việc này: P1 kể app trả lời bằng bot trước khi gặp nhân viên (`evidence/interviews/P1.md`). Bot đó có dùng AI hay không: chưa kiểm.
 
 ## §1. Người dùng & bằng chứng *(guide 1.1, 1.2)*
 - Người dùng chính (một vai cụ thể): người đặt đồ ăn qua app, vừa nhận đơn và thấy thiếu món.
@@ -25,7 +25,7 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): Không dù
   - Phỏng vấn: 3/3 người bị thiếu món trong 1 tháng qua (P1 2 lần, P2 1 lần, P3 2 lần). Lần gần nhất mất ~10 phút (bỏ cuộc) đến hơn 30 phút. 2/3 người không lấy lại đủ tiền (P1 voucher thấp hơn giá món, P2 bỏ cuộc); P3 được hoàn đủ nhưng mất hơn 30 phút.
   - Khảo sát (`evidence/survey/results.csv`, n = 21): 9/21 người bị thiếu món ≥1 lần trong 1 tháng qua, tổng 14 lần. Lần gần nhất xử lý: 9/16 người mất ≥15 phút (6 người 15–30 phút, 3 người trên 30 phút) · 7/15 người khiếu nại chỉ được giải quyết một phần.
   - Kết luận: giả thuyết "khách khó khiếu nại và phải chờ lâu" được ủng hộ ở cả phỏng vấn và khảo sát. Số review giao đồ ăn của Huy (`evidence/data-mining.md`) bổ sung sau.
-  - Giới hạn: 2/21 người chưa từng đặt đồ ăn vẫn nằm trong mẫu số 21.
+  - Giới hạn: 2/21 người chưa từng đặt đồ ăn vẫn nằm trong mẫu số 21, nên khảo sát chỉ có 19 người đúng người dùng (dưới ngưỡng 20); phỏng vấn là nguồn chính. Có phiếu mâu thuẫn: bỏ 6 phiếu trả lời "chưa bao giờ bị thiếu món" thì ≥15 phút là 7/12 và giải quyết một phần là 7/11 (`evidence/summary.md` mục 2).
 
 ## §2. Impact & quyết định chọn *(guide 1.3)*
 
@@ -35,7 +35,7 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): Không dù
 | Khiếu nại **sai món** | chưa đo | chưa đo | chưa đo | chưa đo | Khó — phải đối chiếu ảnh món nhận được, §4 đã ghi không đọc ảnh | ❌ |
 | Khiếu nại **giao trễ** | chưa đo | chưa đo | chưa đo | chưa đo | Khó — cần dữ liệu thời gian giao thật của app, nhóm không có | ❌ |
 
-- **Impact / tháng** của hướng chọn = 9 người × 1,56 lần × ~17 phút ≈ 238 phút (≈ 4 giờ) / tháng trong mẫu 21 người — nguồn từng thừa số: 9 người và 14 lần từ câu 4 khảo sát · 17 phút là trung bình giữa các khoảng của câu 6 (dưới 5 → 2,5 · 5–15 → 10 · 15–30 → 22,5 · trên 30 → 30) trên 16 người có xử lý *(tự ước tính)*. Chưa tính tiền món bị mất. Quy mô người dùng thật để ở §8.
+- **Impact / tháng** của hướng chọn = 9 người × 1,56 lần × ~17 phút ≈ 238 phút (≈ 4 giờ) / tháng trong mẫu 21 người — nguồn từng thừa số: 9 người và 14 lần từ câu 4 khảo sát · 17 phút là trung bình giữa các khoảng của câu 6 (dưới 5 → 2,5 · 5–15 → 10 · 15–30 → 22,5 · trên 30 → 30) trên 16 người có xử lý *(tự ước tính)*. Chưa tính tiền món bị mất. Nếu bỏ 6 phiếu mâu thuẫn (§1), trung bình còn ~16,7 phút trên 12 người. Quy mô người dùng thật để ở §8.
 - Hướng ĐÃ LOẠI + vì sao (giữ lại, đừng xoá): **sai món** — phải xác minh món nhận được qua ảnh, ngoài phạm vi lát cắt (§4 "không đọc ảnh"). **Giao trễ** — cần dữ liệu thời gian giao thật mà nhóm không có, và lỗi nằm ở vận hành giao hàng hơn là ở bước khiếu nại. Cả hai chưa có số đo; khi gặp trong tin khách thì bản chạy thử chuyển nhân viên. *(nháp — nhóm chốt ở họp 08:00)*
 - Số lần / tháng của từng kiểu người dùng (dùng cho persona ở §8) — số lần **bị thiếu món** / tháng (câu 4) theo tần suất đặt (câu 2), khảo sát n = 21:
 
@@ -136,6 +136,8 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): Không dù
 |---|---|---|
 | 27/11/2026 21:49 | Bổ sung §3 về luồng khiếu nại ShopeeFood. | Đối chiếu cách gắn báo cáo với đơn hàng và làm rõ bước xử lý mà AoAshi đề xuất cho khách. |
 | 27/11/2026 22:07 | Soạn cấu hình persona và giá DeepSeek trong `cost/personas.yaml`. | Lấy cơ cấu tần suất giao thiếu từ câu 4 của khảo sát. Ghi rõ giả định sử dụng để thử mô phỏng chi phí. |
+| 27/11/2026 22:44 | `eval/benchmark.csv`: chỉ đổi cột `source` của B02, B05, B09, B12, B16, B18–B22 (`input`, `expected`, `pass_criterion` của các câu này giữ nguyên so với bản CP2). | Bổ sung chú thích nguồn. Chưa có link hoặc mã bản ghi để kiểm; ghi chú cũ của một số câu (B12, B18–B21) từng là câu chuyển thể từ dữ liệu giả lập, cần Giang đối chiếu (`data/DATA_CARD.md`). |
+| 28/11/2026 00:07 | Đính chính bằng chứng: bỏ trích dẫn từ phiếu khảo sát 21, ghi rõ phiếu mâu thuẫn và số khi lọc, sửa số phiếu trong `questions.md`, sửa §0; điền `eval/report.md` lượt 1; cập nhật README và khai báo AI. Không đổi chuẩn "đạt", metric, câu thử và kết quả `run-1`. | Phiếu 21 trả lời chưa bao giờ bị thiếu món; một số dòng mô tả đã cũ. |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 

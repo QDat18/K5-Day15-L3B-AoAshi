@@ -9,7 +9,7 @@
 |---|---|---|
 | Đào data (x/N, %, cách đếm chạy lại được, ≥5 ví dụ) | ☐ Chưa — mẫu là review bánh tráng đóng gói trên Shopee, không phải giao đồ ăn; ví dụ ở dạng tóm tắt, chưa nguyên văn | `evidence/data-mining.md` |
 | Phỏng vấn (≥3 người ngoài nhóm, đúng người dùng) | ☑ 3 người ngoài nhóm, đều đặt đồ ăn qua app và kể được một lần thiếu món trong 1 tháng qua | `evidence/interviews/P1.md`, `P2.md`, `P3.md` |
-| Khảo sát (≥20 người ngoài nhóm, đúng người dùng) | ⚠️ Sát ngưỡng — n = 21 phiếu, nhưng 2 người chưa từng đặt đồ ăn → 19 người đúng người dùng | `evidence/survey/results.csv`, `questions.md` |
+| Khảo sát (≥20 người ngoài nhóm, đúng người dùng) | ☐ Chưa — n = 21 phiếu, nhưng 2 người chưa từng đặt đồ ăn → 19 người đúng người dùng, dưới ngưỡng 20; ngoài ra có phiếu trả lời mâu thuẫn (xem mục 2). Dùng làm nguồn kiểm lại | `evidence/survey/results.csv`, `questions.md` |
 
 ## 2. Số chính
 
@@ -20,6 +20,8 @@
   - Lần gần nhất: 9/16 (56%) người có xử lý mất ≥15 phút — 6 người 15–30 phút, 3 người trên 30 phút (câu 6).
   - Kết quả: 7/15 (47%) người có khiếu nại chỉ được giải quyết một phần (voucher / hoàn ít hơn giá món), 8/15 giải quyết xong (câu 7).
   - Trở ngại (chọn nhiều, trên 21 phiếu): chờ nhân viên lâu, không biết bước tiếp theo 7 · không biết bấm vào đâu để khiếu nại 7 · món nhỏ mà quy trình rườm rà 6 · không nhớ mã đơn / tên món 4 · không giữ ảnh / hoá đơn 4 · không gặp trở ngại 2 (câu 8).
+
+**Đính chính 28/11 — phiếu mâu thuẫn:** 6 phiếu (4, 5, 9, 14, 17, 21) trả lời câu 3 là "Chưa bao giờ bị thiếu món"; trong đó phiếu 4, 5, 9, 21 vẫn ghi thời gian xử lý ở câu 6. Giữ nguyên toàn bộ phiếu gốc. Số theo cách đếm ban đầu (mọi phiếu) ghi ở trên; nếu bỏ cả 6 phiếu này thì: lần gần nhất mất ≥15 phút **7/12** (thay vì 9/16) · chỉ được giải quyết một phần **7/11** (thay vì 7/15) · giải quyết xong 4/11 (thay vì 8/15). Số 9/21 người bị thiếu món và tổng 14 lần (câu 4) không đổi vì cả 6 phiếu đều ghi 0 lần.
 
 Phỏng vấn nhiều vai thì đếm theo từng vai, không cộng chung.
 
@@ -35,17 +37,18 @@ Phỏng vấn nhiều vai thì đếm theo từng vai, không cộng chung.
 2. "Mở túi ra là mình vứt luôn tờ bill vào sọt rác để ăn cho nhanh, lúc phát hiện thiếu món thì app bắt chụp ảnh hóa đơn đối chiếu. Nghĩ món có hai mấy nghìn mà thủ tục lằng nhằng quá nên thôi bỏ luôn." — P2
 3. "Đặt đơn nhóm 5–6 món rất hay bị thiếu, mà giao diện khiếu nại giấu kỹ quá, tìm mãi mới ra. Lúc nhập khiếu nại lại phải lật lại lịch sử đơn để dò xem thiếu chính xác món nào rồi gõ tay từng chữ." — P3
 4. "Rất lâu vì phải làm thêm 1 bước nữa" — phiếu khảo sát 12, câu 9
-5. "Nhắn tin cho shop nhưng shop rep lâu" — phiếu khảo sát 21, câu 9
-6. "Khó chịu vì nếu phải chờ đợi" — phiếu khảo sát 1, câu 9
+5. "Khó chịu vì nếu phải chờ đợi" — phiếu khảo sát 1, câu 9
 
 *Số phiếu = thứ tự dòng dữ liệu trong `evidence/survey/results.csv` (phiếu 1 là dòng 2, sau dòng tiêu đề). Trích đúng như người trả lời gõ.*
+
+*Đính chính 28/11: đã bỏ một trích dẫn lấy từ phiếu 21, vì chính phiếu này trả lời "Chưa bao giờ bị thiếu món". Còn 5 trích dẫn.*
 
 ## 4. Các nguồn có khớp nhau không
 
 Data nói: ở review Shopee (khác bối cảnh), cả 3 ca giao thiếu đều kể khó liên hệ hoặc chờ xử lý. Người dùng nói: cả 3 người phỏng vấn đều gặp trong tháng qua, mất 10 đến hơn 30 phút; khảo sát cho thấy 9/21 người gặp trong tháng và trở ngại hay chọn nhất là chờ lâu / không biết bước tiếp theo và không biết bấm vào đâu (mỗi lựa chọn 7 người).
 
 - **Khớp:** chờ lâu và không rõ bước tiếp theo xuất hiện ở cả ba nguồn. Khó tìm chỗ khiếu nại (P3, 7 phiếu) và món nhỏ nên bỏ cuộc (P2, 6 phiếu) khớp giữa phỏng vấn và khảo sát.
-- **Lệch:** khảo sát có 8/15 người được giải quyết xong, nhiều hơn tỉ lệ ở phỏng vấn (1/3) — pain chủ yếu là **mất thời gian và không rõ bước tiếp theo**, không phải lúc nào cũng mất tiền.
+- **Lệch:** khảo sát có 8/15 người được giải quyết xong (4/11 nếu bỏ phiếu mâu thuẫn, xem mục 2), so với 1/3 ở phỏng vấn — pain chủ yếu là **mất thời gian và không rõ bước tiếp theo**, không phải lúc nào cũng mất tiền.
 - **Lệch nhỏ trong khảo sát:** 10 người nói lần gần nhất bị thiếu là trong 1 tháng qua (câu 3), nhưng chỉ 9 người ghi ≥1 lần ở câu 4. Giữ nguyên phiếu, không sửa.
 
 ## 5. Kết luận
