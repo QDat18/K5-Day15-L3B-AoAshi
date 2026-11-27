@@ -6,7 +6,7 @@
 - **Ngày xem:** 27/11/2026. Ngày đăng của các review trong mẫu từ 23/04/2025 đến 18/11/2026.
 - **Cách lấy mẫu:** Chọn bộ lọc 1 sao, đọc 5 trang đầu theo thứ tự Shopee hiển thị, mỗi trang 6 review. Khoảng ngày đăng là phạm vi quan sát được của mẫu.
 - **Đếm gì:** Đếm review kể rõ đơn bị giao thiếu hàng hoặc thành phần. Trong các review đó, đếm riêng những ca khách kể gặp khó khăn khi liên hệ xử lý phần thiếu, như không được trả lời, phản hồi chậm hoặc chờ gửi bù. Giao sai thành phần và nghi thiếu khối lượng được gắn nhãn riêng.
-- **Mẫu số:** `N = 40`, gồm toàn bộ review đã đọc trong 5 trang, kể cả review về vấn đề khác. Khi tính tỷ lệ gặp khó khăn trong nhóm giao thiếu, dùng số ca giao thiếu làm mẫu số.
+- **Mẫu số:** `N = 30`, gồm toàn bộ review đã đọc trong 5 trang, kể cả review về vấn đề khác. Khi tính tỷ lệ gặp khó khăn trong nhóm giao thiếu, dùng số ca giao thiếu làm mẫu số.
 - **Công thức:** `Tỷ lệ giao thiếu = số review báo rõ giao thiếu / 30 × 100%`. `Tỷ lệ gặp khó khăn trong nhóm giao thiếu = số review báo giao thiếu và gặp khó khăn khi liên hệ / số review báo rõ giao thiếu × 100%`. Mỗi review được đếm một lần cho mỗi chỉ số.
 
 ## 2. Đọc trước, đếm sau
