@@ -37,3 +37,20 @@
 | Phiên bản / ngày lấy | Đối chiếu benchmark tại commit `2e6547a` ngày 27/11/2026. Phiên bản và ngày lấy dữ liệu gốc chưa được ghi nhận. |
 | Nhãn / seed | `synthetic`. Benchmark ghi `tu_viet` cho các câu chuyển thể. Seed của nguồn gốc chưa kiểm. |
 | Giới hạn / kiểm tra | Đã kiểm số câu theo cột `source`. Chưa kiểm từng câu với bản ghi gốc. Các câu phản ánh tình huống mô phỏng đã được điều chỉnh cho D1. |
+
+## Dataset 4 · Food Delivery Support Tickets (nguồn câu thử)
+
+| Mục | Nội dung |
+|---|---|
+| Dùng để làm gì | Làm nguồn để soạn ca báo thiếu món và ca chỉ nhận được một phần món. |
+| Từ đâu | [shaked08/food-delivery-support-tickets trên Hugging Face](https://huggingface.co/datasets/shaked08/food-delivery-support-tickets). |
+| Xử lý những bước gì | Nhóm Việt hóa và điều chỉnh các ca được chọn theo bối cảnh D1. |
+| Số câu sử dụng | **2/30** câu trong `eval/benchmark.csv` trên `main` tại `e1bf487`. Cột `source` ghi B17 phỏng theo Tickets 18 và B23 phỏng theo Tickets 113. |
+| Phiên bản / ngày lấy | Đối chiếu benchmark ngày 27/11/2026. Phiên bản và ngày lấy dữ liệu gốc chưa được ghi nhận. |
+| Nhãn / seed | `synthetic`. Benchmark ghi `tu_viet` cho các câu chuyển thể. Seed của nguồn gốc chưa kiểm. |
+| Giấy phép | MIT theo trang dataset trên Hugging Face, xem ngày 27/11/2026. |
+| Giới hạn / kiểm tra | Đã kiểm số câu theo cột `source`. Chưa đối chiếu hai câu với bản ghi gốc. |
+
+## Nguồn của các câu gắn nhãn `nguoi_dung` hoặc `data_that`
+
+Tại commit `e1bf487`, cột `source` ghi `nguoi_dung` cho B05, B09, B12, B22 và `data_that` cho B02, B16, B18, B19, B20, B21. Các ô này hiện chỉ có nhãn. Người tham gia, link hoặc mã bản ghi gốc chưa được xác minh, nên 10/30 là số đếm theo nhãn đang có. Cần Giang đối chiếu nguồn từng câu trước khi dùng số này để kết luận đạt ngưỡng.
