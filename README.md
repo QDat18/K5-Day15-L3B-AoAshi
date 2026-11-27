@@ -84,15 +84,15 @@ Nhóm dùng stack khác (Node, Streamlit, notebook…): sửa hàm `run_app()` t
 
 | Thành phần | Thật / Giả | Ghi chú |
 |---|---|---|
-| Lời gọi AI ở quyết định trung tâm | **Thật** (bắt buộc từ CP3) | Model: ____ |
-|  |  |  |
+| Lời gọi AI ở quyết định trung tâm | **Thật** (bắt buộc từ CP3) | Model: DeepSeek (`deepseek-flash`), gọi qua API thật trong `codebase/ai.py` |
+| Dữ liệu đơn hàng, chính sách và bản nháp | **Giả** | 18 đơn giả lập (`data/orders.json`), hạn mức 100.000đ (`data/policy.json`); bản nháp/phiếu không lưu hàng đợi và không hoàn tiền thật |
 
 ## Dùng AI vào việc gì
 
 2–3 dòng (bắt buộc): nhóm dùng công cụ AI nào để làm gì, người kiểm lại phần nào. Chi tiết: [docs/ai-usage.md](docs/ai-usage.md). Coding agent đọc [AGENTS.md](AGENTS.md).
 
-Nhóm dùng Claude Code để tóm tắt bộ đề, gợi ý track và phạm vi, dựng repo từ starter-repo, chia việc, viết nháp `canvas.md`, và viết thiết kế, code, test, dữ liệu giả, sơ đồ và `spec.md` §4 của bản chạy thử; đề xuất câu thử B26–B30. Codex được dùng để soạn và Việt hóa câu thử, và kiểm tra tự động dữ liệu giả (theo `data/DATA_CARD.md`).
-Nhóm chọn track D, lát cắt đơn giao thiếu món và cung cấp thông tin thành viên. Phần chia việc và câu chữ trong canvas do AI soạn, cả nhóm cần rà lại. Pain trong canvas vẫn là giả thuyết, chưa kiểm.
+Nhóm dùng Claude Code để tóm tắt bộ đề, gợi ý track và phạm vi, dựng repo từ starter-repo, chia việc, viết nháp `canvas.md`, và viết thiết kế, code, test, dữ liệu giả, sơ đồ và `spec.md` §4 của bản chạy thử; đề xuất câu thử B26–B30. Codex được dùng để soạn và Việt hóa câu thử, và kiểm tra tự động dữ liệu giả (theo `data/DATA_CARD.md`). Antigravity hỗ trợ kiểm tra nối model thật (`deepseek-flash`), chạy thử các câu mẫu và cập nhật `spec.md` §4–§6, `README.md`.
+Nhóm chọn track D, lát cắt đơn giao thiếu món và cung cấp thông tin thành viên. Đạt đã chạy kiểm tra nối model thật và quyết định giữ nguyên luật hiện tại trước `run-1`; phần chia việc và câu chữ do AI soạn vẫn cần cả nhóm rà lại. Pain trong canvas vẫn là giả thuyết, chưa kiểm.
 
 ## File mẫu — điền ở bước nào
 
@@ -124,5 +124,5 @@ Nhóm chọn track D, lát cắt đơn giao thiếu món và cung cấp thông t
 | 4 | Bản chạy thử làm trọn lát cắt | `codebase/` · lệnh ở mục "Lệnh" |
 | 5 | Định nghĩa "tốt" + bộ câu thử | `data/DATA_CARD.md` · `eval/` |
 | 6 | Mô phỏng chi phí khi dùng thật | `cost/` |
-| 7 | Slide + demo + video dự phòng | `demo-slides.pdf` ở thư mục gốc · link video: ____ |
+| 7 | Slide + demo + video dự phòng | `demo-slides.pdf` ở thư mục gốc · link video: https://drive.google.com/drive/folders/1ytvR3W61cE3X5CG3kharNXRFg60i27uL?usp=sharing |
 | + | *Bonus:* người dùng thử | `validation/log.md` |
