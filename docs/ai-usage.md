@@ -6,13 +6,14 @@ README của nhóm có mục "Dùng AI vào việc gì" (2–3 dòng, bắt bu�
 
 | Việc | Công cụ AI | AI làm gì | Người kiểm/sửa gì | Ai phụ trách |
 |---|---|---|---|---|
-| Code bản chạy thử | | | | |
-| Prompt / thiết kế lời gọi mô hình | | | | |
-| Đào data (viết script đếm, gợi ý nhãn) | | | Kiểm tay __ dòng, khớp __ | |
-| Rà câu hỏi phỏng vấn / khảo sát | | Chỉ rà câu dẫn dắt | | |
-| Viết câu thử (benchmark) | | | Mỗi câu thử có `source`; câu thử AI viết được ghi rõ | |
-| Sinh data `synthetic` (nếu có) | | | Seed __ · kiểm tay __ dòng | |
-| Chấm cột `pass` bằng LLM (nếu có) | | | Kiểm tra thủ công __ câu thử, khớp __/__ | |
-| Slide, văn bản | | | | |
+| Code bản chạy thử | Chưa dùng | Chưa viết code. Repo mới có khung starter-repo của BTC | | Hoàng Quang Đạt |
+| Prompt / thiết kế lời gọi mô hình | Claude Code | Mới gợi ý hướng thiết kế khi bàn phạm vi (AI chọn đề xuất / hỏi thêm / chuyển nhân viên, code kiểm hạn mức). Chưa viết prompt | Nhóm chọn lát cắt đơn giao thiếu món; thiết kế chi tiết chưa chốt | Hoàng Quang Đạt |
+| Đào data (viết script đếm, gợi ý nhãn) | Chưa dùng cho bằng chứng | Mới gợi ý nguồn review và cách đếm, chưa lấy review nào | Chưa có dòng nào để kiểm | Võ Thanh Huy |
+| Rà câu hỏi phỏng vấn / khảo sát | Claude Code | Gợi ý câu hỏi nháp khi bàn phạm vi. Chưa gửi bộ câu hỏi nào | Chưa rà | Đỗ Anh Thư |
+| Viết câu thử (benchmark) | Chưa dùng | Chưa viết câu thử của nhóm (file còn dòng mẫu của khung) | Mỗi câu thử có `source`; câu thử AI viết được ghi rõ | Vương Trường Giang |
+| Sinh data `synthetic` (nếu có) | Chưa dùng | Chưa sinh data | | |
+| Chấm cột `pass` bằng LLM (nếu có) | Chưa dùng | Chưa chạy lượt đánh giá nào | | Vương Trường Giang |
+| Slide, văn bản | Claude Code | Viết nháp `canvas.md` (bài toán, lát cắt, giả thuyết, mức tự động), chia phần việc trong `TEAMS.md`, điền mục khai báo này. Chưa làm slide | Nhóm chọn track D, lát cắt và cung cấp thông tin thành viên; câu chữ và phần chia việc cần cả nhóm rà lại | Cả nhóm |
+| Chuẩn bị đề bài và repo | Claude Code | Đọc, tóm tắt bộ đề; hướng dẫn mốc CP1; chép starter-repo, điền tên nhóm / lớp / link, xoá mục 0 trong README, commit và push | Chưa ghi nhận người kiểm | Hoàng Quang Đạt |
 
 **Không dùng AI để:** tạo người được phỏng vấn, trích dẫn, câu trả lời khảo sát; sửa kết quả các lượt đã chạy (`eval/run-*.csv`, `cost/simulate-*.csv`, `traces/`).
