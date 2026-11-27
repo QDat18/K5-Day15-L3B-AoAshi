@@ -17,7 +17,10 @@ Chế độ giả (mặc định khi .env chưa có MODEL_PROVIDER, hoặc MODEL
 Nối model thật: điền .env (chép từ .env.example), rồi viết nhánh gọi API ở dưới theo docs/connect-model.md
 (có ví dụ OpenAI, Claude, model chạy trên máy, và cách nối nhà cung cấp khác). Không dán API key vào file này.
 """
+import json
 import os
+import urllib.error
+import urllib.request
 
 from tracing import model_call
 
@@ -43,14 +46,70 @@ MODEL_NAME = (os.environ.get("MODEL_NAME") or "").strip()
 API_KEY = (os.environ.get("API_KEY") or "").strip()
 
 
+def post_json(url, headers, body, timeout=60):
+    """Gửi POST JSON, trả về JSON phản hồi. Chỉ dùng thư viện chuẩn (urllib)."""
+    req = urllib.request.Request(
+        url, data=json.dumps(body).encode("utf-8"), method="POST",
+        headers=dict({"Content-Type": "application/json"}, **headers))
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            return json.loads(r.read().decode("utf-8"))
+    except urllib.error.HTTPError as e:
+        detail = e.read().decode("utf-8", "replace")
+        if API_KEY:  # lỗi được ghi vào eval/run-N.csv (file được commit) nên che key trước khi cắt
+            detail = detail.replace(API_KEY, "***")
+        raise RuntimeError("HTTP %d: %s" % (e.code, detail[:300]))
+
+
+def _chat(system, user):
+    return ([{"role": "system", "content": system}] if system else []) + [{"role": "user", "content": user}]
+
+
+def call_openai(system, user):
+    data = post_json("https://api.openai.com/v1/chat/completions", {"Authorization": "Bearer " + API_KEY},
+                     {"model": MODEL_NAME, "messages": _chat(system, user)})
+    usage = data["usage"]
+    return data["choices"][0]["message"]["content"], usage["prompt_tokens"], usage["completion_tokens"]
+
+
+def call_deepseek(system, user):
+    # API theo định dạng OpenAI (api-docs.deepseek.com, xem 27/11/2026). Tắt "thinking" (mặc định bật, tốn thêm
+    # token ra); bật JSON mode, chế độ này cần chữ "JSON" trong prompt (SYSTEM ở agent.py đã có). Nội dung rỗng
+    # hay sai định dạng thì rules.parse_model_json trả None → chuyển nhân viên.
+    data = post_json("https://api.deepseek.com/chat/completions", {"Authorization": "Bearer " + API_KEY},
+                     {"model": MODEL_NAME, "messages": _chat(system, user), "thinking": {"type": "disabled"},
+                      "response_format": {"type": "json_object"}, "max_tokens": 1024})
+    usage = data["usage"]
+    return data["choices"][0]["message"]["content"] or "", usage["prompt_tokens"], usage["completion_tokens"]
+
+
+def call_claude(system, user):
+    data = post_json("https://api.anthropic.com/v1/messages",
+                     {"x-api-key": API_KEY, "anthropic-version": "2023-06-01"},
+                     {"model": MODEL_NAME, "max_tokens": 1024, "system": system or "",
+                      "messages": [{"role": "user", "content": user}]})
+    text = "".join(b.get("text", "") for b in data.get("content", []) if b.get("type") == "text")
+    return text, data["usage"]["input_tokens"], data["usage"]["output_tokens"]
+
+
+def call_ollama(system, user):
+    data = post_json("http://localhost:11434/api/chat", {},
+                     {"model": MODEL_NAME, "messages": _chat(system, user), "stream": False}, timeout=300)
+    return data["message"]["content"], data.get("prompt_eval_count", 0), data.get("eval_count", 0)
+
+
+PROVIDERS = {"openai": call_openai, "deepseek": call_deepseek,"anthropic": call_claude, "ollama": call_ollama}
+
+
 @model_call
 def call_model(system: str, user: str) -> dict:
     if MODEL_PROVIDER == "fake":
         last = (user.strip().splitlines() or [""])[-1]
         return {"text": "[câu trả lời giả — chưa nối model] " + last[:60], "model": "fake", "tokens_in": 0, "tokens_out": 0}
 
-    # NHÓM VIẾT: gọi model thật ở đây (theo MODEL_PROVIDER, MODEL_NAME, API_KEY) rồi trả đúng 4 khoá.
-    # Ví dụ chép được cho từng nhà cung cấp: docs/connect-model.md mục 2.
-    raise NotImplementedError(
-        "chưa viết phần gọi model thật cho MODEL_PROVIDER=%s trong codebase/ai.py — xem docs/connect-model.md"
-        % MODEL_PROVIDER)
+    if MODEL_PROVIDER not in PROVIDERS:
+        raise NotImplementedError(
+            "chưa viết phần gọi model thật cho MODEL_PROVIDER=%s trong codebase/ai.py — xem docs/connect-model.md"
+            % MODEL_PROVIDER)
+    text, tokens_in, tokens_out = PROVIDERS[MODEL_PROVIDER](system, user)
+    return {"text": text, "model": MODEL_NAME, "tokens_in": int(tokens_in), "tokens_out": int(tokens_out)}
