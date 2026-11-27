@@ -1,8 +1,8 @@
 # Bộ câu hỏi khảo sát
 
 - **Kênh đã gửi:** __ *(điền kênh gửi form, vd: nhóm lớp L3A, L3B)*
-- **Giờ mở / cập nhật:** 2026-11-27 18:20 → 19:08
-- **Số phiếu hiện có trong `results.csv`:** 20 phiếu (đã xoá cột liên hệ và cột email để bảo vệ thông tin cá nhân)
+- **Giờ mở / cập nhật:** 2026-11-27 18:20 → 20:24 (theo dấu thời gian trong `results.csv`)
+- **Số phiếu hiện có trong `results.csv`:** 21 phiếu (đã xoá cột liên hệ và cột email để bảo vệ thông tin cá nhân)
 
 ## Danh sách câu hỏi
 
