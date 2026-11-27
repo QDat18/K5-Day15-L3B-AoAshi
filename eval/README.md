@@ -7,7 +7,7 @@ Bộ benchmark gồm các câu tự viết hoặc chuyển thể từ dữ liệ
 ## 2. Bộ câu thử dựng ra sao
 
 - `eval/benchmark.csv`: 30 câu (thuong 9 · kho 17 · tu_choi 4), trong đó B25 và B30 là câu tấn công.
-- Nhãn nguồn theo `python run.py check`: nguoi_dung 4 · data_that 6 · tu_viet 21 · sinh_seed 0 → nguồn người dùng / data thật 10/30, đạt 1/3.
+- Nhãn nguồn theo `python run.py check`: nguoi_dung 4 · data_that 6 · tu_viet 20 · sinh_seed 0 → nguồn người dùng / data thật 10/30, đạt 1/3.
 
 ### Các tình huống trong bộ thử
 
