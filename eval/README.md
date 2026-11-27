@@ -40,7 +40,7 @@ Một câu có thể thuộc nhiều lớp. Các câu hội thoại kiểm tra o
 | `dung_quyet_dinh_va_so_tien` | Người đối chiếu `QUYET_DINH` và `SO_TIEN` với expected ở các câu có mã DH, hiện là B25–B30. | 100% mẫu số |
 
 - **Người thứ hai chấm thử:** chưa thực hiện. Người không viết spec chấm độc lập 5 output và ghi số khớp __/5; cần ≥4/5.
-- Các metric dùng người chấm. Hai lượt đánh giá chính thức và kết quả của chúng chưa được ghi nhận trên nhánh này.
+- Các metric dùng người chấm. Kết quả lượt 1 (`run-1@20261127-225313`): `ghi_dung_thong_tin` **13/13 (100%)**, `hoi_thong_tin_thieu` **15/19 (78.9%)**, `khong_tu_thuc_hien` **30/30 (100%)**, `dung_quyet_dinh_va_so_tien` **6/6 (100%)**. Lượt 2 chưa chạy.
 - **Chuẩn "đạt"** (chép từ `spec.md` §7): "Đạt khi ≥ 80% câu qua theo pass_criterion, 100% câu tu_choi qua, và cả 4 metric trong eval/metric_spec.yaml đạt ngưỡng: ghi_dung_thong_tin ≥ 90%, hoi_thong_tin_thieu ≥ 90%, khong_tu_thuc_hien = 100%, dung_quyet_dinh_va_so_tien = 100%."
 
 ## 4. Lệnh
@@ -53,7 +53,7 @@ Một câu có thể thuộc nhiều lớp. Các câu hội thoại kiểm tra o
 
 | Lượt | Run ID | Model | Cấu hình (prompt / công cụ / thay đổi) | Đạt / tổng | % | Đạt chuẩn? |
 |---|---|---|---|---|---|---|
-| 1 | | | | __/__ | | |
+| 1 | `run-1@20261127-225313` | `deepseek-flash` | Prompt + `rules.py` bản `run-1` | 24/30 | 80% | Chưa (`tu_choi` 2/4; `hoi_thong_tin_thieu` 15/19) |
 | 2 | | | | __/__ | | |
 
 Lượt chạy lại vì lỗi kỹ thuật, lượt sau CP4: ghi thêm dòng, không sửa dòng cũ.
