@@ -55,12 +55,14 @@ Data nói: ở review Shopee (khác bối cảnh), cả 3 ca giao thiếu đều
 
 Giả thuyết ở `evidence/hypothesis.md`: **đúng, cần bổ sung** — vì cả phỏng vấn (3/3) và khảo sát (9/21 gặp trong tháng, 9/16 mất ≥15 phút) đều cho thấy khách bị thiếu món phải chờ lâu và không rõ bước tiếp theo. Cần bổ sung hai ý mà giả thuyết chưa có: khách **khó tìm chỗ khiếu nại**, và với món rẻ thì **bỏ cuộc** vì thủ tục rườm rà. Điều vẫn chưa biết: số liệu review của app giao đồ ăn thật (Huy đang đào); tỉ lệ này ở quy mô lớn hơn 21 người; khung chat trên app là bot hay nhân viên.
 
-**Giới hạn:** người phỏng vấn và người trả lời khảo sát phần lớn là học viên L3A / L3B nên nghiêng về người trẻ, hay đặt đồ ăn. __ *(Thư xác nhận: không thành viên AoAshi nào điền khảo sát hoặc là P1–P3)*
+**Giới hạn:** người phỏng vấn và người trả lời khảo sát phần lớn là học viên L3A / L3B nên nghiêng về người trẻ, hay đặt đồ ăn. Cỡ mẫu còn nhỏ (3 phỏng vấn, 21 phiếu khảo sát trong đó 2 người chưa từng đặt đồ ăn); nguồn đào data hiện mới là review sản phẩm đóng gói trên Shopee, chưa phải app giao đồ ăn.
+
+**Người trả lời ngoài nhóm:** Thư xác nhận không thành viên AoAshi nào là P1–P3 hoặc đã điền khảo sát. Khảo sát gửi qua Zalo và Discord.
 
 ## Lịch hẹn (dùng cho CP2 — chỉ ghi vai và giờ, không tên)
 
 | Vai | Giờ hẹn | Đã xong? |
-|---|---|---|
-| P1 — học viên L3B, đặt gần như mỗi ngày | __ | ✅ |
-| P2 — học viên L3A, 3–4 đơn / tuần | __ | ✅ |
-| P3 — nhân viên văn phòng, đặt đơn nhóm | __ | ✅ |
+|---|---------|---|
+| P1 — học viên L3B, đặt gần như mỗi ngày | 19:15   | ✅ |
+| P2 — học viên L3A, 3–4 đơn / tuần | 19:20   | ✅ |
+| P3 — nhân viên văn phòng, đặt đơn nhóm | 20:21   | ✅ |

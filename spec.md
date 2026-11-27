@@ -36,7 +36,7 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): Không dù
 | Khiếu nại **giao trễ** | chưa đo | chưa đo | chưa đo | chưa đo | Khó — cần dữ liệu thời gian giao thật của app, nhóm không có | ❌ |
 
 - **Impact / tháng** của hướng chọn = 9 người × 1,56 lần × ~17 phút ≈ 238 phút (≈ 4 giờ) / tháng trong mẫu 21 người — nguồn từng thừa số: 9 người và 14 lần từ câu 4 khảo sát · 17 phút là trung bình giữa các khoảng của câu 6 (dưới 5 → 2,5 · 5–15 → 10 · 15–30 → 22,5 · trên 30 → 30) trên 16 người có xử lý *(tự ước tính)*. Chưa tính tiền món bị mất. Nếu bỏ 6 phiếu mâu thuẫn (§1), trung bình còn ~16,7 phút trên 12 người. Quy mô người dùng thật để ở §8.
-- Hướng ĐÃ LOẠI + vì sao (giữ lại, đừng xoá): **sai món** — phải xác minh món nhận được qua ảnh, ngoài phạm vi lát cắt (§4 "không đọc ảnh"). **Giao trễ** — cần dữ liệu thời gian giao thật mà nhóm không có, và lỗi nằm ở vận hành giao hàng hơn là ở bước khiếu nại. Cả hai chưa có số đo; khi gặp trong tin khách thì bản chạy thử chuyển nhân viên. *(nháp — nhóm chốt ở họp 08:00)*
+- Hướng ĐÃ LOẠI + vì sao (giữ lại, đừng xoá): **sai món** — phải xác minh món nhận được qua ảnh, ngoài phạm vi lát cắt (§4 "không đọc ảnh"). **Giao trễ** — cần dữ liệu thời gian giao thật mà nhóm không có, và lỗi nằm ở vận hành giao hàng hơn là ở bước khiếu nại. Cả hai chưa có số đo; khi gặp trong tin khách thì bản chạy thử chuyển nhân viên.
 - Số lần / tháng của từng kiểu người dùng (dùng cho persona ở §8) — số lần **bị thiếu món** / tháng (câu 4) theo tần suất đặt (câu 2), khảo sát n = 21:
 
   | Kiểu người dùng (câu 2) | n | Số lần thiếu món / tháng (TB) |
@@ -138,6 +138,7 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): Không dù
 | 27/11/2026 22:07 | Soạn cấu hình persona và giá DeepSeek trong `cost/personas.yaml`. | Lấy cơ cấu tần suất giao thiếu từ câu 4 của khảo sát. Ghi rõ giả định sử dụng để thử mô phỏng chi phí. |
 | 27/11/2026 22:44 | `eval/benchmark.csv`: chỉ đổi cột `source` của B02, B05, B09, B12, B16, B18–B22 (`input`, `expected`, `pass_criterion` của các câu này giữ nguyên so với bản CP2). | Bổ sung chú thích nguồn. Chưa có link hoặc mã bản ghi để kiểm; ghi chú cũ của một số câu (B12, B18–B21) từng là câu chuyển thể từ dữ liệu giả lập, cần Giang đối chiếu (`data/DATA_CARD.md`). |
 | 28/11/2026 00:07 | Đính chính bằng chứng: bỏ trích dẫn từ phiếu khảo sát 21, ghi rõ phiếu mâu thuẫn và số khi lọc, sửa số phiếu trong `questions.md`, sửa §0; điền `eval/report.md` lượt 1; cập nhật README và khai báo AI. Không đổi chuẩn "đạt", metric, câu thử và kết quả `run-1`. | Phiếu 21 trả lời chưa bao giờ bị thiếu món; một số dòng mô tả đã cũ. |
+| 28/11/2026 __:__ · Thư | Bổ sung dòng đầu `P1.md`–`P3.md` (cách phỏng vấn, ngày giờ, người hỏi / ghi), kênh khảo sát trong `questions.md`, xác nhận người trả lời ngoài nhóm trong `summary.md`; canvas dòng 4 thêm số đã lọc 7/12 và giới hạn; bỏ chữ "nháp" ở §2 sau họp. Không đổi số liệu gốc. | Thiếu thông tin nguồn để kiểm bằng chứng; canvas dòng 4 còn dùng số chưa lọc. |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 
