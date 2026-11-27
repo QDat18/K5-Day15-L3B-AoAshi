@@ -57,6 +57,8 @@ Giả thuyết ở `evidence/hypothesis.md`: **đúng, cần bổ sung** — vì
 
 **Giới hạn:** người phỏng vấn và người trả lời khảo sát phần lớn là học viên L3A / L3B nên nghiêng về người trẻ, hay đặt đồ ăn. Cỡ mẫu còn nhỏ (3 phỏng vấn, 21 phiếu khảo sát trong đó 2 người chưa từng đặt đồ ăn); nguồn đào data hiện mới là review sản phẩm đóng gói trên Shopee, chưa phải app giao đồ ăn.
 
+**Người trả lời ngoài nhóm:** Thư xác nhận không thành viên AoAshi nào là P1–P3 hoặc đã điền khảo sát. Khảo sát gửi qua Zalo và Discord.
+
 ## Lịch hẹn (dùng cho CP2 — chỉ ghi vai và giờ, không tên)
 
 | Vai | Giờ hẹn | Đã xong? |

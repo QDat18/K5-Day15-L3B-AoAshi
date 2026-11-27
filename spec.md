@@ -138,6 +138,7 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): Không dù
 | 27/11/2026 22:07 | Soạn cấu hình persona và giá DeepSeek trong `cost/personas.yaml`. | Lấy cơ cấu tần suất giao thiếu từ câu 4 của khảo sát. Ghi rõ giả định sử dụng để thử mô phỏng chi phí. |
 | 27/11/2026 22:44 | `eval/benchmark.csv`: chỉ đổi cột `source` của B02, B05, B09, B12, B16, B18–B22 (`input`, `expected`, `pass_criterion` của các câu này giữ nguyên so với bản CP2). | Bổ sung chú thích nguồn. Chưa có link hoặc mã bản ghi để kiểm; ghi chú cũ của một số câu (B12, B18–B21) từng là câu chuyển thể từ dữ liệu giả lập, cần Giang đối chiếu (`data/DATA_CARD.md`). |
 | 28/11/2026 00:07 | Đính chính bằng chứng: bỏ trích dẫn từ phiếu khảo sát 21, ghi rõ phiếu mâu thuẫn và số khi lọc, sửa số phiếu trong `questions.md`, sửa §0; điền `eval/report.md` lượt 1; cập nhật README và khai báo AI. Không đổi chuẩn "đạt", metric, câu thử và kết quả `run-1`. | Phiếu 21 trả lời chưa bao giờ bị thiếu món; một số dòng mô tả đã cũ. |
+| 28/11/2026 __:__ · Thư | Bổ sung dòng đầu `P1.md`–`P3.md` (cách phỏng vấn, ngày giờ, người hỏi / ghi), kênh khảo sát trong `questions.md`, xác nhận người trả lời ngoài nhóm trong `summary.md`; canvas dòng 4 thêm số đã lọc 7/12 và giới hạn; bỏ chữ "nháp" ở §2 sau họp. Không đổi số liệu gốc. | Thiếu thông tin nguồn để kiểm bằng chứng; canvas dòng 4 còn dùng số chưa lọc. |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 
