@@ -154,5 +154,161 @@
         "don_gia": 65000
       }
     ]
+  },
+  "DH011": {
+    "trang_thai": "da_giao",
+    "da_hoan": false,
+    "mon": [
+      {
+        "ma": "M1",
+        "ten": "Burger tôm",
+        "so_luong": 2,
+        "don_gia": 45000
+      },
+      {
+        "ma": "M2",
+        "ten": "Khoai tây chiên",
+        "so_luong": 1,
+        "don_gia": 19000
+      }
+    ]
+  },
+  "DH012": {
+    "trang_thai": "da_giao",
+    "da_hoan": false,
+    "mon": [
+      {
+        "ma": "M1",
+        "ten": "Kem sundae sô cô la",
+        "so_luong": 2,
+        "don_gia": 25000
+      },
+      {
+        "ma": "M2",
+        "ten": "Trà chanh",
+        "so_luong": 1,
+        "don_gia": 15000
+      }
+    ]
+  },
+  "DH013": {
+    "trang_thai": "da_giao",
+    "da_hoan": false,
+    "mon": [
+      {
+        "ma": "M1",
+        "ten": "Bún chả",
+        "so_luong": 2,
+        "don_gia": 45000
+      },
+      {
+        "ma": "M2",
+        "ten": "Nem rán",
+        "so_luong": 4,
+        "don_gia": 8000
+      }
+    ]
+  },
+  "DH014": {
+    "trang_thai": "da_giao",
+    "da_hoan": false,
+    "mon": [
+      {
+        "ma": "M1",
+        "ten": "Bún bò",
+        "so_luong": 1,
+        "don_gia": 55000
+      },
+      {
+        "ma": "M2",
+        "ten": "Chả giò",
+        "so_luong": 1,
+        "don_gia": 20000
+      },
+      {
+        "ma": "M3",
+        "ten": "Chả cua",
+        "so_luong": 2,
+        "don_gia": 15000
+      }
+    ]
+  },
+  "DH015": {
+    "trang_thai": "da_giao",
+    "da_hoan": false,
+    "mon": [
+      {
+        "ma": "M1",
+        "ten": "Cơm rang",
+        "so_luong": 2,
+        "don_gia": 50000
+      },
+      {
+        "ma": "M2",
+        "ten": "Trứng chiên",
+        "so_luong": 1,
+        "don_gia": 10000
+      }
+    ]
+  },
+  "DH016": {
+    "trang_thai": "da_giao",
+    "da_hoan": false,
+    "mon": [
+      {
+        "ma": "M1",
+        "ten": "Bún đậu mắm tôm",
+        "so_luong": 1,
+        "don_gia": 55000
+      },
+      {
+        "ma": "M2",
+        "ten": "Chả cốm",
+        "so_luong": 1,
+        "don_gia": 20000
+      }
+    ]
+  },
+  "DH017": {
+    "trang_thai": "da_giao",
+    "da_hoan": false,
+    "mon": [
+      {
+        "ma": "M1",
+        "ten": "Trà đào cam sả",
+        "so_luong": 1,
+        "don_gia": 55000
+      },
+      {
+        "ma": "M2",
+        "ten": "Trà sen vàng củ năng",
+        "so_luong": 1,
+        "don_gia": 55000
+      }
+    ]
+  },
+  "DH018": {
+    "trang_thai": "da_giao",
+    "da_hoan": false,
+    "mon": [
+      {
+        "ma": "M1",
+        "ten": "Phin sữa đá",
+        "so_luong": 1,
+        "don_gia": 39000
+      },
+      {
+        "ma": "M2",
+        "ten": "Bánh mì thịt",
+        "so_luong": 1,
+        "don_gia": 35000
+      },
+      {
+        "ma": "M3",
+        "ten": "Cơm tấm sườn bì",
+        "so_luong": 1,
+        "don_gia": 55000
+      }
+    ]
   }
 }

@@ -44,7 +44,9 @@ def draft_refund(order_id: str, items: list, amount: int) -> dict:
 
 
 @tool
-def escalate_to_staff(reason: str) -> dict:
-    """Tên: escalate_to_staff. Input: mã lý do. Output: phiếu nháp chuyển nhân viên.
+def escalate_to_staff(reason: str, order_ids: list = None, items: list = None, customer_message: str = "") -> dict:
+    """Tên: escalate_to_staff. Input: mã lý do, mã đơn khách nêu, món khách nêu, tin của khách.
+    Output: phiếu nháp chuyển nhân viên, giữ nguyên văn tin khách (tối đa 1000 ký tự) thay vì bản tóm tắt của AI.
     Tác động ra ngoài: không (chưa gửi cho ai)."""
-    return {"loai": "phieu_chuyen_nhan_vien", "trang_thai": "nhap", "reason": reason}
+    return {"loai": "phieu_chuyen_nhan_vien", "trang_thai": "nhap", "reason": reason,
+            "order_ids": order_ids or [], "items": items or [], "customer_message": customer_message[:1000]}

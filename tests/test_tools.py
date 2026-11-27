@@ -28,6 +28,13 @@ class DraftTools(unittest.TestCase):
         ticket = tools.escalate_to_staff("vuot_han_muc")
         self.assertEqual((ticket["reason"], ticket["trang_thai"]), ("vuot_han_muc", "nhap"))
 
+    def test_escalate_draft_carries_complaint_for_staff(self):
+        items = [{"ten": "bún chả", "so_luong": None}]
+        ticket = tools.escalate_to_staff("model_chuyen", ["DH004"], items, "x" * 1500)
+        self.assertEqual((ticket["order_ids"], ticket["items"]), (["DH004"], items))
+        self.assertEqual(ticket["customer_message"], "x" * 1000)
+        self.assertEqual(ticket["trang_thai"], "nhap")
+
 
 if __name__ == "__main__":
     unittest.main()

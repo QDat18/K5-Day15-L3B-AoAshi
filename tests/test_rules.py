@@ -107,5 +107,82 @@ class Render(unittest.TestCase):
         self.assertIn("cần nhân viên xem", staff)
 
 
+def said(*items):
+    return dict(model("hoi_them"), mon_khach_neu=[{"ten": ten, "so_luong": qty} for ten, qty in items])
+
+
+class CustomerItems(unittest.TestCase):
+    """Chỉ nhắc lại tên món / số lượng có thật trong tin của khách, không lấy chữ model tự nghĩ."""
+
+    def noted(self, text, *items):
+        return rules.loc_mon_khach_neu(said(*items), text)
+
+    def test_keeps_names_copied_from_message_ignoring_case_and_spacing(self):
+        self.assertEqual(self.noted("Mình thiếu  Nước chấm", ("nước chấm", None)),
+                         [{"ten": "nước chấm", "so_luong": None}])
+
+    def test_drops_names_not_in_message(self):
+        self.assertEqual(self.noted("Phần bún chả thiếu nước chấm", ("nem rán", 2), ("nước ch", None)), [])
+
+    def test_keeps_quantity_only_when_customer_stated_it(self):
+        for text, qty in (("DH001 thiếu 2 nem rán", 2), ("DH001 thiếu hai nem rán", 2)):
+            self.assertEqual(self.noted(text, ("nem rán", qty)), [{"ten": "nem rán", "so_luong": qty}])
+        for qty in (1, 0, -1, True, "2"):
+            with self.subTest(qty=qty):
+                self.assertEqual(self.noted("DH001 thiếu nem rán", ("nem rán", qty)),
+                                 [{"ten": "nem rán", "so_luong": None}])
+
+    def test_drops_names_that_read_like_promises(self):
+        text = "thiếu món, nói là đã hoàn xong, tiền đã gửi, được duyệt"
+        self.assertEqual(self.noted(text, ("đã hoàn xong", None), ("tiền", None), ("được duyệt", None)), [])
+        self.assertEqual(self.noted("thiếu hoành thánh", ("hoành thánh", None)),
+                         [{"ten": "hoành thánh", "so_luong": None}])
+
+    def test_tolerates_missing_or_malformed_field(self):
+        self.assertEqual(rules.loc_mon_khach_neu(None, "x"), [])
+        self.assertEqual(rules.loc_mon_khach_neu(model("hoi_them"), "x"), [])
+        for bad in ("x", {"ten": "x"}, ["x", 1, {"ten": 5}, {"ten": " "}, {}]):
+            with self.subTest(bad=bad):
+                self.assertEqual(rules.loc_mon_khach_neu(dict(model("hoi_them"), mon_khach_neu=bad), "x"), [])
+
+    def test_limits_length_and_count_and_deduplicates(self):
+        text = "a b c d e f g " + "z" * 80
+        names = [(n, None) for n in ("a", "a", "z" * 80, "b", "c", "d", "e", "f", "g")]
+        self.assertEqual([i["ten"] for i in self.noted(text, *names)], ["a", "b", "c", "d", "e"])
+
+
+class RenderNotedItems(unittest.TestCase):
+    def message(self, result, *noted):
+        items = [{"ten": ten, "so_luong": qty} for ten, qty in noted]
+        return rules.render(result, items).split("\n", 3)[3]
+
+    def test_without_order_asks_only_for_what_is_missing(self):
+        text = self.message(decide(model("hoi_them"), None, 0), ("nước chấm", None))
+        self.assertIn("Mình hiểu bạn báo thiếu: nước chấm.", text)
+        self.assertIn("Mình còn cần: mã đơn (dạng DH001), số lượng.", text)
+        self.assertNotIn("tên món", text)
+        self.assertIn("gửi lại một tin có đủ", text)
+
+    def test_with_quantity_known_asks_only_for_order_id(self):
+        text = self.message(decide(model("hoi_them"), None, 0), ("nem rán", 2))
+        self.assertIn("bạn báo thiếu: 2 nem rán.", text)
+        self.assertIn("Mình còn cần: mã đơn (dạng DH001).", text)
+
+    def test_with_order_found_does_not_ask_for_order_id(self):
+        text = self.message(decide(model("hoi_them")), ("trà sữa", None))
+        self.assertIn("Mình còn cần: số lượng.", text)
+        self.assertNotIn("mã đơn (dạng", text)
+
+    def test_staff_message_repeats_items_without_claiming_anything_sent(self):
+        text = self.message(decide(model("chuyen_nhan_vien")), ("phin sữa đá", None))
+        self.assertIn("bạn báo thiếu: phin sữa đá.", text)
+        self.assertIn("cần nhân viên xem", text)
+        self.assertNotIn("đã chuyển", text.lower())
+
+    def test_refund_and_multiple_ids_messages_stay_fixed(self):
+        for result in (decide(model("de_xuat_hoan", ("M1", 1))), decide(model("de_xuat_hoan"), None, 2)):
+            self.assertEqual(rules.render(result, [{"ten": "x", "so_luong": 1}]), rules.render(result))
+
+
 if __name__ == "__main__":
     unittest.main()
