@@ -105,6 +105,7 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): __
 | Thời điểm | Đổi gì | Vì sao (trỏ về câu thử / lỗi / bằng chứng nào) |
 |---|---|---|
 | 27/11/2026 21:49 | Bổ sung §3 về luồng khiếu nại ShopeeFood. | Đối chiếu cách gắn báo cáo với đơn hàng và làm rõ bước xử lý mà AoAshi đề xuất cho khách. |
+| 27/11/2026 22:07 | Soạn cấu hình persona và giá DeepSeek trong `cost/personas.yaml`. | Lấy cơ cấu tần suất giao thiếu từ câu 4 của khảo sát. Ghi rõ giả định sử dụng để thử mô phỏng chi phí. |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 
