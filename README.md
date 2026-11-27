@@ -91,7 +91,7 @@ Nhóm dùng stack khác (Node, Streamlit, notebook…): sửa hàm `run_app()` t
 
 2–3 dòng (bắt buộc): nhóm dùng công cụ AI nào để làm gì, người kiểm lại phần nào. Chi tiết: [docs/ai-usage.md](docs/ai-usage.md). Coding agent đọc [AGENTS.md](AGENTS.md).
 
-Nhóm dùng Claude Code để tóm tắt bộ đề, gợi ý track và phạm vi, dựng repo từ starter-repo, chia việc, viết nháp `canvas.md`, và viết thiết kế, code, test, dữ liệu giả, sơ đồ và `spec.md` §4 của bản chạy thử; đề xuất câu thử B26–B30. Codex được dùng để soạn và Việt hóa câu thử.
+Nhóm dùng Claude Code để tóm tắt bộ đề, gợi ý track và phạm vi, dựng repo từ starter-repo, chia việc, viết nháp `canvas.md`, và viết thiết kế, code, test, dữ liệu giả, sơ đồ và `spec.md` §4 của bản chạy thử; đề xuất câu thử B26–B30. Codex được dùng để soạn và Việt hóa câu thử, và kiểm tra tự động dữ liệu giả (theo `data/DATA_CARD.md`).
 Nhóm chọn track D, lát cắt đơn giao thiếu món và cung cấp thông tin thành viên. Phần chia việc và câu chữ trong canvas do AI soạn, cả nhóm cần rà lại. Pain trong canvas vẫn là giả thuyết, chưa kiểm.
 
 ## File mẫu — điền ở bước nào
