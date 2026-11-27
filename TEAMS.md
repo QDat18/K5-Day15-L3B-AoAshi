@@ -6,14 +6,15 @@
 
 - Tên nhóm: AoAshi
 - Lớp: L3B
-- Track: ____
+- Track: D
 - Link repo: https://github.com/QDat18/K5-Day15-L3B-AoAshi
 
 | STT | Họ và tên | Mã học viên | Vai trò | Phần việc chính |
 |---|---|---|---|---|
-| 1 | ____ | ____ | Đội trưởng | ____ |
-| 2 | ____ | ____ | Thành viên | ____ |
-| 3 | ____ | ____ | Thành viên | ____ |
+| 1 | Đỗ Anh Thư | 2A202603815 | Đội trưởng | Phỏng vấn, khảo sát, bảng impact và nộp checkpoint |
+| 2 | Hoàng Quang Đạt | 2A202603808 | Thành viên | Làm bản chạy thử, nối model và chặn rủi ro |
+| 3 | Vương Trường Giang | 2A202603834 | Thành viên | Viết bộ câu thử, metric và báo cáo đánh giá |
+| 4 | Võ Thanh Huy | 2A202603879 | Thành viên | Đào review, mô phỏng chi phí và làm slide |
 
 **Quy tắc điền**
 - **Lớp:** `L3A` hoặc `L3B`. **Track:** một chữ `A` (EdTech), `B` (Y tế), `C` (Du lịch), `D` (Thương mại điện tử), `E` (Tài chính) hoặc `F` (Làn khác). **Link repo:** link GitHub công khai của nhóm.
