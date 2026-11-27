@@ -13,8 +13,8 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): Không dù
   3. Tìm mục Trợ giúp / form khiếu nại trên app, hoặc gọi tài xế / quán (P2). P3 không biết bấm vào đâu: "giao diện khiếu nại giấu kỹ quá, tìm mãi mới ra".
   4. Tự gõ lại mã đơn và tên món thiếu, nhắn CSKH. P1 qua bot trước rồi mới gặp nhân viên. P3 phải lật lại lịch sử đơn để dò món thiếu rồi gõ tay từng chữ, gửi qua mục Trợ giúp và nhắn thêm CSKH.
   5. Chờ phản hồi rồi nhận kết quả: P1 chờ ~20 phút, được voucher thấp hơn giá món · P3 hơn 30 phút (tính cả chờ duyệt) mới được hoàn đúng giá trị món thiếu về ví · P2 loay hoay ~10 phút rồi bỏ cuộc, mất ~25.000đ.
-- Ảnh chụp từ tài khoản của nhóm (đã che thông tin):  ![Mục trợ giúp trên app](assets/p1-tro-giup.png) hình ảnh của p1
-- Công cụ / AI đang được dùng: gemini dùng tạo google doc, deekseek dùng cho llm
+- Ảnh chụp mục Trợ giúp trên app, do P1 cung cấp (đã che thông tin): ![Mục trợ giúp trên app](assets/p1-tro-giup.png)
+- Công cụ / AI đang được dùng: mục hỗ trợ trên app có bot trả lời trước, sau đó mới chuyển sang nhân viên. P1 kể "bot trả lời lòng vòng mãi mới gặp được nhân viên". P2 và P3 không nhắc tới bot hay AI: P2 gọi tài xế, P3 gửi qua mục Trợ giúp và nhắn CSKH.
 
 ## §1. Người dùng & bằng chứng *(guide 1.1, 1.2)*
 - Người dùng chính (một vai cụ thể): người đặt đồ ăn qua app, vừa nhận đơn và thấy thiếu món.
@@ -36,7 +36,7 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): Không dù
 | Khiếu nại **giao trễ** | chưa đo | chưa đo | chưa đo | chưa đo | Khó — cần dữ liệu thời gian giao thật của app, nhóm không có | ❌ |
 
 - **Impact / tháng** của hướng chọn = 9 người × 1,56 lần × ~17 phút ≈ 238 phút (≈ 4 giờ) / tháng trong mẫu 21 người — nguồn từng thừa số: 9 người và 14 lần từ câu 4 khảo sát · 17 phút là trung bình giữa các khoảng của câu 6 (dưới 5 → 2,5 · 5–15 → 10 · 15–30 → 22,5 · trên 30 → 30) trên 16 người có xử lý *(tự ước tính)*. Chưa tính tiền món bị mất. Quy mô người dùng thật để ở §8.
-- Hướng ĐÃ LOẠI + vì sao (giữ lại, đừng xoá): **sai món** — phải xác minh món nhận được qua ảnh, ngoài phạm vi lát cắt (§4 "không đọc ảnh"). **Giao trễ** — cần dữ liệu thời gian giao thật mà nhóm không có, và lỗi nằm ở vận hành giao hàng hơn là ở bước khiếu nại. Cả hai chưa có số đo; khi gặp trong tin khách thì bản chạy thử chuyển nhân viên. *(nháp — nhóm chốt ở họp 08:00)*
+- Hướng ĐÃ LOẠI + vì sao (giữ lại, đừng xoá): **sai món** — phải xác minh món nhận được qua ảnh, ngoài phạm vi lát cắt (§4 "không đọc ảnh"). **Giao trễ** — cần dữ liệu thời gian giao thật mà nhóm không có, và lỗi nằm ở vận hành giao hàng hơn là ở bước khiếu nại. Cả hai chưa có số đo; khi gặp trong tin khách thì bản chạy thử chuyển nhân viên.
 - Số lần / tháng của từng kiểu người dùng (dùng cho persona ở §8) — số lần **bị thiếu món** / tháng (câu 4) theo tần suất đặt (câu 2), khảo sát n = 21:
 
   | Kiểu người dùng (câu 2) | n | Số lần thiếu món / tháng (TB) |
