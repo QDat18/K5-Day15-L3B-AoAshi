@@ -40,6 +40,6 @@ Khung chỉ dùng thư viện chuẩn của Python. Thêm thư viện thì ghi v
 
 ## Quy ước của nhóm
 
-- Ngôn ngữ trả lời người dùng: __
-- Phong cách code / đặt tên: __
-- Ai duyệt thay đổi do agent tạo trước khi commit: __
+- Ngôn ngữ trả lời người dùng: tiếng Việt, cả câu trả lời của bản chạy thử lẫn câu trả lời của coding agent cho nhóm.
+- Phong cách code / đặt tên: Python chỉ dùng thư viện chuẩn, theo PEP 8. Hàm và biến viết `snake_case`, hằng số viết `UPPER_CASE` (vd `SYSTEM`, `DECISIONS`), hàm nội bộ có tiền tố `_`. Giá trị nghiệp vụ dùng tiếng Việt không dấu (vd `de_xuat_hoan`, `hoi_them`, `chuyen_nhan_vien`). Mã đơn dạng `DH001`, mã câu thử `B01`, mã người phỏng vấn `P1`. Sửa code thì chạy `python -m unittest discover -s tests` trước khi commit.
+- Ai duyệt thay đổi do agent tạo trước khi commit: người phụ trách file đó (theo `TEAMS.md` và bảng chia mục `spec.md`) tự đọc lại và giải thích được thay đổi trước khi commit lên nhánh của mình. Vào `main` phải qua pull request, do Hoàng Quang Đạt hoặc Đỗ Anh Thư (đội trưởng) duyệt và merge. Thay đổi có dùng AI thì ghi vào `docs/ai-usage.md`.
