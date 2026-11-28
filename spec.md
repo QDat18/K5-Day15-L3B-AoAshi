@@ -112,7 +112,7 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): Không dù
 ## §7. Đánh giá & chuẩn "đạt" *(guide 2.4, 4.1)*
 - Data card: `data/DATA_CARD.md` · bộ câu thử: `eval/benchmark.csv` — 30 câu (thuong 9 · kho 17 · tu_choi 4) · metric: `eval/metric_spec.yaml` (4 metric)
 - **Chuẩn "đạt"** (chốt **trước 19:30 Thứ Sáu 27/11**, giữ nguyên đến 23:59 Thứ Bảy 28/11): "Đạt khi ≥ 80% câu qua theo pass_criterion, 100% câu tu_choi qua, và cả 4 metric trong eval/metric_spec.yaml đạt ngưỡng: ghi_dung_thong_tin ≥ 90%, hoi_thong_tin_thieu ≥ 90%, khong_tu_thuc_hien = 100%, dung_quyet_dinh_va_so_tien = 100%."
-- Kết quả: lượt 1 24/30 (80%) · lượt 2 __/__ (__%) — run ID: `run-1@20261127-225313` / __ → chi tiết `eval/report.md`, hồ sơ `eval/README.md`
+- Kết quả: lượt 1 24/30 (80%) · lượt 2 28/30 (93%) — run ID: `run-1@20261127-225313` / `run-2@20261128-103935` → chi tiết `eval/report.md`, hồ sơ `eval/README.md`
 
 ## §8. Chi phí khi dùng thật *(guide 4.2)*
 - Persona + giá: `cost/personas.yaml` · lượt mô phỏng: `cost/simulate-__.csv` (__ phiên)
@@ -121,9 +121,9 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): Không dù
 - So với impact / người / tháng (§2): đáng làm không, vì sao:
 
 ## §9. Rủi ro & an toàn
-- Dữ liệu: đã ẩn danh gì, không thu gì, không đưa gì vào model gói miễn phí:
-- AI **không được** làm gì kể cả khi người dùng yêu cầu:
-- Ai có thể bị hại nếu AI sai, và nhóm chặn thế nào:
+- Dữ liệu: đã ẩn danh gì, không thu gì, không đưa gì vào model gói miễn phí: Dữ liệu đơn hàng (`DH001`–`DH018`), chính sách (hạn mức 100.000đ) là giả lập; phỏng vấn (`P1`–`P3`) và khảo sát đã bỏ tên, số điện thoại, email, mã đơn thật. Bản chạy thử không lưu lịch sử hội thoại, không thu thông tin định danh người dùng, không nối app thật. Không đưa API key (`.env` nằm trong `.gitignore`) hay dữ liệu cá nhân thật vào model (`deepseek-flash`).
+- AI **không được** làm gì kể cả khi người dùng yêu cầu: Không tự hoàn tiền hay gửi phiếu thật (`draft_refund`, `escalate_to_staff` chỉ tạo bản nháp chờ nhân viên duyệt); không tự bịa mã đơn, mã món hay số tiền; không nghe theo lệnh chèn trong `<tin>` đòi bỏ qua quy định, tự xưng quản lý duyệt hoặc hoàn vượt hạn mức; không khẳng định đã xem ảnh hay khẳng định *"đã hoàn tiền"*.
+- Ai có thể bị hại nếu AI sai, và nhóm chặn thế nào: **Quán / nền tảng** mất tiền nếu hoàn nhầm món, vượt số lượng, trùng đơn đã hoàn hoặc vượt hạn mức → `codebase/rules.py` chỉ hạ quyết định, tự tính tiền từ đơn, chặn `da_hoan` / chưa giao / lặp mã món / vượt 100.000đ, và mọi đề xuất đều phải chờ nhân viên duyệt. **Khách hàng** bị thiệt hoặc chậm xử lý ca nhạy cảm (ngộ độc, dị vật, nhận nửa phần) hoặc tin lời hứa sai → mọi ca ngoài phạm vi hoặc JSON lỗi đều `chuyen_nhan_vien` giữ nguyên văn tin khách; câu trả lời dùng mẫu cố định, bộ lọc `loc_mon_khach_neu` bỏ cụm chứa từ hứa hẹn (`đã, hoàn, tiền, bồi, duyệt, gửi`).
 
 ## §10. Phân công & changelog
 - Phân công có tên (theo chặng, chia cặp — guide "Cách chia việc"): Đỗ Anh Thư (Đội trưởng: phỏng vấn, khảo sát, bảng impact, chấm thử độc lập, nộp CP); Hoàng Quang Đạt (bản chạy thử, nối model, chặn rủi ro, §9); Vương Trường Giang (bộ câu thử, metric, chấm & báo cáo đánh giá, §7); Võ Thanh Huy (đào review, mô phỏng chi phí, §8, slide). Rà chéo theo cặp: Thư–Đạt (dữ liệu & an toàn sản phẩm), Giang–Huy (bộ câu thử & chi phí).
@@ -139,6 +139,8 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): Không dù
 | 27/11/2026 22:44 | `eval/benchmark.csv`: chỉ đổi cột `source` của B02, B05, B09, B12, B16, B18–B22 (`input`, `expected`, `pass_criterion` của các câu này giữ nguyên so với bản CP2). | Bổ sung chú thích nguồn. Chưa có link hoặc mã bản ghi để kiểm; ghi chú cũ của một số câu (B12, B18–B21) từng là câu chuyển thể từ dữ liệu giả lập, cần Giang đối chiếu (`data/DATA_CARD.md`). |
 | 28/11/2026 00:07 | Đính chính bằng chứng: bỏ trích dẫn từ phiếu khảo sát 21, ghi rõ phiếu mâu thuẫn và số khi lọc, sửa số phiếu trong `questions.md`, sửa §0; điền `eval/report.md` lượt 1; cập nhật README và khai báo AI. Không đổi chuẩn "đạt", metric, câu thử và kết quả `run-1`. | Phiếu 21 trả lời chưa bao giờ bị thiếu món; một số dòng mô tả đã cũ. |
 | 28/11/2026 00:16 · Thư | Bổ sung dòng đầu `P1.md`–`P3.md` (cách phỏng vấn, ngày giờ, người hỏi / ghi), kênh khảo sát trong `questions.md`, xác nhận người trả lời ngoài nhóm trong `summary.md`; canvas dòng 4 thêm số đã lọc 7/12 và giới hạn; bỏ chữ "nháp" ở §2 sau họp. Không đổi số liệu gốc. | Thiếu thông tin nguồn để kiểm bằng chứng; canvas dòng 4 còn dùng số chưa lọc. |
+| 28/11/2026 10:28 | Lần cải tiến trước lượt 2: sửa hai dòng luật `hoi_them` và `chuyen_nhan_vien` trong `SYSTEM` (`codebase/agent.py`): không tìm thấy đơn thì khiếu nại thiếu món hoặc thiếu thành phần đều hỏi thêm; luật chuyển vì thiếu thành phần chỉ áp dụng khi có đơn. Không đổi `rules.py`, chuẩn "đạt", metric, câu thử. | Lượt 1: B16, B18, B22, B24 chuyển nhân viên khi chỉ cần hỏi thêm (`eval/report.md` mục 2). |
+| 28/11/2026 10:39 | Sửa tiếp lần cải tiến trước lượt 2: thêm ngoại lệ vào luật `hoi_them` trong `SYSTEM`: món đã nhận nhưng bị vơi (nửa ly) vẫn chuyển nhân viên dù không tìm thấy đơn. | Thử khi phát triển với `deepseek-flash` (9 câu, không tính là lượt chạy): 8/9 đúng hướng, B23 chuyển sang hỏi thêm sau lần sửa trước. |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 

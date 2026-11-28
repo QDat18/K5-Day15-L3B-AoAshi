@@ -78,6 +78,33 @@ class Flow(unittest.TestCase):
         for needed in ("mon_khach_neu", "Khách:", "nửa", "không muốn cung cấp thêm"):
             self.assertIn(needed, agent.SYSTEM)
 
+    def rule(self, name):
+        """Dòng luật của một quyết định trong SYSTEM."""
+        found = [line for line in agent.SYSTEM.splitlines() if line.startswith("- %s:" % name)]
+        self.assertEqual(len(found), 1)
+        return found[0]
+
+    def test_prompt_asks_instead_of_escalating_when_order_is_unknown(self):
+        ask = self.rule("hoi_them")
+        for needed in ('"không tìm thấy"', "thành phần", "gửi ảnh", "chuyen_nhan_vien"):
+            self.assertIn(needed, ask)
+
+    def test_prompt_keeps_partly_filled_item_with_staff_even_without_order(self):
+        ask = self.rule("hoi_them")
+        for needed in ("Không áp dụng khi", "bị vơi", "một nửa", "dù không tìm thấy đơn", "thành phần"):
+            self.assertIn(needed, ask)
+
+    def test_prompt_limits_component_rule_to_known_order(self):
+        staff = self.rule("chuyen_nhan_vien")
+        self.assertNotIn("đã có đơn nhưng phần thiếu chỉ là thành phần", staff)
+        self.assertIn('Chỉ khi "Đơn hàng" có dữ liệu', staff)
+
+    def test_prompt_keeps_reasons_that_must_still_escalate(self):
+        staff = self.rule("chuyen_nhan_vien")
+        for needed in ("nửa ly", "không muốn cung cấp thêm", "không hài lòng", "bỏ qua quy định",
+                       "đòi hơn tiền món thiếu"):
+            self.assertIn(needed, staff)
+
 
 if __name__ == "__main__":
     unittest.main()
