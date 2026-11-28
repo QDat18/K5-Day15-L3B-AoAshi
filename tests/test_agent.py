@@ -89,6 +89,11 @@ class Flow(unittest.TestCase):
         for needed in ('"không tìm thấy"', "thành phần", "gửi ảnh", "chuyen_nhan_vien"):
             self.assertIn(needed, ask)
 
+    def test_prompt_keeps_partly_filled_item_with_staff_even_without_order(self):
+        ask = self.rule("hoi_them")
+        for needed in ("Không áp dụng khi", "bị vơi", "một nửa", "dù không tìm thấy đơn", "thành phần"):
+            self.assertIn(needed, ask)
+
     def test_prompt_limits_component_rule_to_known_order(self):
         staff = self.rule("chuyen_nhan_vien")
         self.assertNotIn("đã có đơn nhưng phần thiếu chỉ là thành phần", staff)

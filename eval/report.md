@@ -49,7 +49,7 @@ Số 4 metric chép từ `eval/README.md` mục 3. Cách chấm: theo `docs/ai-u
 ## 3. Một lần cải tiến
 
 - Nhắm vào nhóm lỗi: **chuyển nhân viên khi chỉ cần hỏi thêm** (B16, B18, B22, B24). Vì sao đau với người dùng: khách chưa đưa mã đơn đã bị dừng ở "cần nhân viên xem", không biết cần bổ sung gì; phỏng vấn và khảo sát nêu trở ngại chờ nhân viên lâu, không biết bước tiếp theo (`evidence/summary.md`).
-- Đã sửa gì (chỉ prompt `SYSTEM`): nói rõ khi không tìm thấy đơn thì thiếu món hay thiếu thành phần đều `hoi_them`, việc đồng ý gửi ảnh không phải lý do chuyển; luật chuyển vì thiếu thành phần chỉ áp dụng khi có đơn; tách "món bị vơi (nửa ly)" khỏi "thiếu thành phần". Các lý do chuyển khác giữ nguyên. Nhóm lỗi B08, B13 **chưa sửa** trong lần này.
+- Đã sửa gì (chỉ prompt `SYSTEM`): nói rõ khi không tìm thấy đơn thì thiếu món hay thiếu thành phần đều `hoi_them`, việc đồng ý gửi ảnh không phải lý do chuyển; luật chuyển vì thiếu thành phần chỉ áp dụng khi có đơn; tách "món bị vơi (nửa ly)" khỏi "thiếu thành phần". Các lý do chuyển khác giữ nguyên. Thử khi phát triển (9 câu gọi `deepseek-flash`, không tính là lượt chạy) thấy B23 (nửa ly) chuyển sang hỏi thêm, nên thêm ngoại lệ món bị vơi vào luật `hoi_them`. Nhóm lỗi B08, B13 **chưa sửa** trong lần này.
 - Kết quả: nhóm lỗi đó __/__ → __/__ · tổng __% → __%
 - Câu nào **tệ đi** sau khi sửa: __
 
