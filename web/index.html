@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AoAshi · Trợ lý xử lý khiếu nại</title>
+  <style>
+    :root{--green:#185b41;--mint:#e8f1e8;--ink:#23362d;--muted:#728078;--border:#e0e6de;--paper:#f7f8f3}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Segoe UI,Arial,sans-serif;font-size:15px}button,textarea{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible{outline:3px solid #a3bf63;outline-offset:4px}button:disabled{cursor:wait;opacity:.65}.shell{display:grid;grid-template-columns:238px 1fr;min-height:100vh}.sidebar{background:#fff;border-right:1px solid var(--border);padding:35px 25px;display:flex;flex-direction:column}.brand{font-size:29px;font-weight:750;letter-spacing:-1.5px;display:flex;align-items:center;gap:12px}.mark{display:grid;place-items:center;background:var(--green);color:white;border-radius:14px;width:42px;height:42px;font-size:24px;letter-spacing:0}.brand small{display:block;font-size:11px;letter-spacing:2px;font-weight:500;color:var(--muted);margin-top:5px}.nav{margin-top:54px;background:var(--mint);color:var(--green);padding:14px;border-radius:10px;font-weight:600}.sidebar-note{margin-top:auto;padding-top:50px;font-size:12px;line-height:1.8;color:var(--muted)}.sidebar-note strong{color:var(--green)}main{max-width:1350px;width:100%;margin:auto;padding:36px 48px 28px}.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:49px;font-size:12px;color:var(--muted);gap:15px}.pill{display:inline-flex;align-items:center;gap:8px;background:white;border:1px solid var(--border);border-radius:30px;padding:8px 13px}.dot{height:7px;width:7px;border-radius:50%;background:#70a584}.eyebrow{font-size:11px;color:var(--green);font-weight:700;letter-spacing:2px;margin:0 0 15px}h1{font-size:clamp(28px,3.3vw,43px);letter-spacing:-1.7px;line-height:1.2;margin:0 0 14px;font-weight:650}.intro{color:var(--muted);line-height:1.8;margin:0;max-width:600px}.steps{display:flex;gap:24px;margin:27px 0 32px;color:var(--muted);font-size:12px;flex-wrap:wrap}.steps b{display:inline-grid;place-items:center;width:23px;height:23px;margin-right:7px;background:var(--mint);color:var(--green);border-radius:50%}.workspace{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}.card{background:white;border:1px solid var(--border);border-radius:18px;overflow:hidden}.card-head{padding:23px 25px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:10px}h2{font-size:16px;margin:0;font-weight:650}.micro{font-size:11px;color:var(--muted)}.card-body{padding:24px}.label{display:block;font-size:12px;font-weight:600;margin:0 0 12px}.samples{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:25px}.sample{text-align:left;background:white;border:1px solid var(--border);border-radius:10px;padding:12px;color:var(--ink);font-size:12px;line-height:1.6}.sample:hover,.sample.active{background:#f0f5ed;border-color:#8aad8d}.sample span{display:block;color:var(--muted);font-size:10px;margin-top:3px}textarea{display:block;width:100%;resize:vertical;min-height:159px;padding:16px;border:1px solid var(--border);border-radius:11px;background:#fcfdf9;color:var(--ink);line-height:1.8;outline:none}textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px #185b4110}.input-meta{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin:10px 0 20px;gap:8px}.submit{width:100%;padding:15px;background:var(--green);color:white;border:0;border-radius:10px;font-weight:600}.submit:hover{background:#104a33}.submit span{margin-left:15px}.empty{text-align:center;padding:35px 14px 43px;color:var(--muted);line-height:1.8}.empty-icon{display:grid;place-items:center;width:70px;height:70px;margin:0 auto 21px;background:#f0f4ea;border-radius:50%;font-size:29px;color:var(--green)}.empty strong{display:block;color:var(--ink);font-weight:600;margin-bottom:7px}.empty p{font-size:12px;max-width:260px;margin:0 auto}.output{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.9;font-size:14px;background:#f4f8ef;border-radius:12px;padding:20px}.result-label{font-size:11px;font-weight:700;color:var(--green);letter-spacing:1px;margin:0 0 12px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:21px}.stat{padding:14px 8px;background:#f8f9f5;border-radius:10px;text-align:center}.stat strong{display:block;font-size:20px;margin-bottom:5px;font-weight:600}.stat small{font-size:10px;color:var(--muted)}.detail{font-size:11px;color:var(--muted);margin-top:15px;overflow-wrap:anywhere}.notice{display:flex;gap:13px;background:#edf2e5;border:1px solid #e1e8d5;border-radius:12px;padding:17px 21px;margin-top:23px;font-size:12px;line-height:1.8;color:#5c6c51}.notice strong{color:#3d5535}.error{background:#fff1eb;color:#9e4625;border-radius:10px;padding:16px;line-height:1.7;font-size:13px;margin-bottom:16px}.mode{font-size:12px;line-height:1.7;padding:12px 16px;margin:0 0 20px;border-radius:10px;background:#fff2d9;color:#805f25}.footer{display:flex;justify-content:space-between;color:var(--muted);font-size:10px;margin-top:28px;gap:15px}.reset{background:none;border:0;font-size:11px;color:var(--muted);text-decoration:underline;padding:4px} [hidden]{display:none!important}
+    @media(max-width:1100px){.shell{grid-template-columns:190px 1fr}.sidebar{padding:30px 20px}main{padding:30px 25px}.workspace{grid-template-columns:1fr}.topbar{margin-bottom:30px}}@media(max-width:600px){.shell{display:block}.sidebar{padding:17px 20px;border-right:0;border-bottom:1px solid var(--border)}.nav,.sidebar-note{display:none}.brand{font-size:24px}.brand small{font-size:9px}.mark{width:35px;height:35px}.topbar{font-size:10px}.pill{padding:6px 10px}main{padding:24px 16px}h1{letter-spacing:-1px}.card-head,.card-body{padding:20px}.steps{gap:10px}.footer{flex-direction:column}}
+  </style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="mark" aria-hidden="true">a</div><div>AoAshi<small>CUSTOMER CARE AI</small></div></div>
+    <div class="nav">◈ &nbsp; Không gian demo</div>
+    <div class="sidebar-note"><strong>Nhỏ một bước.<br>Tốt hơn một trải nghiệm.</strong><br><br>AI20K Hackathon<br>Trợ lý hỗ trợ khiếu nại đơn đồ ăn.</div>
+  </aside>
+  <main>
+    <div class="topbar"><span>AoAshi / Không gian demo</span><span class="pill"><span class="dot"></span>Phiên demo trên máy</span></div>
+    <p class="eyebrow">CHĂM SÓC KHÁCH HÀNG, CÙNG AI</p>
+    <h1>Mỗi khiếu nại, một hướng xử lý.</h1>
+    <p class="intro">Từ phản ánh thiếu món đến đề xuất rõ ràng. Thử cách AoAshi đọc tình huống, kiểm tra đơn hàng và hỗ trợ bước tiếp theo.</p>
+    <div class="steps"><span><b>1</b>Nhập khiếu nại</span><span><b>2</b>AI & quy tắc kiểm tra</span><span><b>3</b>Nhận hướng xử lý</span></div>
+    <div class="mode" id="mode" role="status">Đang kết nối chương trình Python…</div>
+    <div class="workspace">
+      <section class="card">
+        <div class="card-head"><h2>Thông tin khiếu nại</h2><span class="micro">ĐẦU VÀO</span></div>
+        <form class="card-body" id="form">
+          <span class="label">Chọn tình huống để thử nhanh</span>
+          <div class="samples">
+            <button class="sample" type="button" data-case="0">01 &nbsp; Thiếu món rõ ràng<span>DH001 · Thiếu 1 ly trà sữa</span></button>
+            <button class="sample" type="button" data-case="1">02 &nbsp; Cần hỏi thêm<span>DH001 · Chưa rõ món bị thiếu</span></button>
+            <button class="sample" type="button" data-case="2">03 &nbsp; Vượt hạn mức<span>DH003 · Thiếu 1 pizza</span></button>
+            <button class="sample" type="button" data-case="3">04 &nbsp; Ngoài phạm vi<span>DH002 · Chất lượng món ăn</span></button>
+          </div>
+          <label class="label" for="message">Lời nhắn của khách hàng</label>
+          <textarea id="message" name="message" maxlength="4000" required placeholder="Ví dụ: Đơn DH001 đã giao nhưng thiếu 1 ly Trà sữa trân châu. Nhờ hỗ trợ hoàn tiền món thiếu."></textarea>
+          <div class="input-meta"><span>Nên có mã đơn, tên món và số lượng thiếu</span><span id="count">0 / 4.000</span></div>
+          <button type="submit" class="submit" id="submit">Phân tích khiếu nại <span aria-hidden="true">→</span></button>
+        </form>
+      </section>
+      <section class="card" aria-label="Kết quả xử lý">
+        <div class="card-head"><h2>Kết quả xử lý</h2><button type="button" class="reset" id="reset">Xóa kết quả</button></div>
+        <div class="card-body" aria-live="polite" aria-busy="false" id="result-region">
+          <div class="error" id="error" role="alert" hidden></div>
+          <div class="empty" id="empty"><div class="empty-icon" aria-hidden="true">✧</div><strong id="empty-title">Sẵn sàng lắng nghe</strong><p id="empty-text">Chọn một tình huống hoặc nhập khiếu nại. Hướng xử lý sẽ xuất hiện tại đây.</p></div>
+          <div id="result" hidden><p class="result-label">PHẢN HỒI TỪ CHƯƠNG TRÌNH</p><div class="output" id="output"></div><div class="stats"><div class="stat"><strong id="latency">—</strong><small>GIÂY XỬ LÝ</small></div><div class="stat"><strong id="calls">—</strong><small>LẦN GỌI AI</small></div><div class="stat"><strong id="tokens">—</strong><small>TỔNG TOKEN</small></div></div><div class="detail" id="detail"></div></div>
+        </div>
+      </section>
+    </div>
+    <div class="notice"><span aria-hidden="true">ⓘ</span><div><strong>Bản demo với dữ liệu giả lập.</strong> Đề xuất hoàn tiền và phiếu chuyển nhân viên là bản nháp chờ người duyệt. Chương trình chưa hoàn tiền hoặc gửi phiếu thực tế.</div></div>
+    <div class="footer"><span>AoAshi · AI20K Hackathon</span><span>Thiếu món → kiểm tra → đề xuất → người duyệt</span></div>
+  </main>
+</div>
+<script>
+  const $ = id => document.getElementById(id);
+  const cases = [
+    'Đơn DH001 đã giao nhưng thiếu 1 ly Trà sữa trân châu. Nhờ hỗ trợ hoàn tiền món thiếu.',
+    'Đơn DH001 giao thiếu món, nhờ bạn hỗ trợ.',
+    'Đơn DH003 đã giao nhưng thiếu 1 Pizza hải sản. Tôi muốn hoàn tiền món thiếu.',
+    'Đơn DH002 đã giao nhưng Phở bò có mùi chua, tôi cần được hỗ trợ.'
+  ];
+  let busy = false;
+  function updateCount() { $('count').textContent = $('message').value.length.toLocaleString('vi-VN') + ' / 4.000'; }
+  function clearResult() { $('result').hidden = true; $('error').hidden = true; $('empty').hidden = false; $('empty-title').textContent = 'Sẵn sàng lắng nghe'; $('empty-text').textContent = 'Chọn một tình huống hoặc nhập khiếu nại. Hướng xử lý sẽ xuất hiện tại đây.'; }
+  document.querySelectorAll('[data-case]').forEach(button => button.addEventListener('click', () => {
+    if (busy) return;
+    document.querySelectorAll('[data-case]').forEach(other => other.classList.remove('active'));
+    button.classList.add('active'); $('message').value = cases[Number(button.dataset.case)]; updateCount(); clearResult(); $('message').focus();
+  }));
+  $('message').addEventListener('input', () => {updateCount(); document.querySelectorAll('[data-case]').forEach(button => button.classList.remove('active'));});
+  $('reset').addEventListener('click', () => { if (!busy) clearResult(); });
+  async function loadStatus() {
+    try {
+      const response = await fetch('/api/status'); if (!response.ok) throw new Error(); const status = await response.json();
+      $('mode').textContent = status.fake ? 'Chế độ giả · Chưa gọi AI thật. Điền cấu hình model trong .env và khởi động lại server để demo phân loại thực tế.' : 'AI đã cấu hình · ' + status.provider + ' / ' + status.model + ' · Mỗi lần phân tích sẽ gọi model.';
+      if (!status.fake) { $('mode').style.background = '#e8f1e8'; $('mode').style.color = '#185b41'; }
+    } catch { $('mode').textContent = 'Chưa kết nối được server. Hãy chạy python web.py và mở địa chỉ được in trong terminal.'; }
+  }
+  $('form').addEventListener('submit', async event => {
+    event.preventDefault(); const text = $('message').value.trim(); if (!text || busy) return;
+    busy = true; clearResult(); $('result-region').setAttribute('aria-busy', 'true');
+    document.querySelectorAll('button').forEach(button => button.disabled = true); $('message').disabled = true;
+    $('submit').textContent = 'Đang phân tích…'; $('empty-title').textContent = 'AoAshi đang xem xét'; $('empty-text').textContent = 'Đang đọc phản ánh, đối chiếu đơn hàng và kiểm tra quy tắc xử lý.';
+    try {
+      const response = await fetch('/api/answer', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({text}) });
+      const data = await response.json(); if (!response.ok) throw new Error(data.error || 'Chưa xử lý được yêu cầu.');
+      $('output').textContent = data.output; $('latency').textContent = data.elapsed.toLocaleString('vi-VN'); $('calls').textContent = data.stats.model_calls;
+      $('tokens').textContent = (data.stats.tokens_in + data.stats.tokens_out).toLocaleString('vi-VN');
+      $('detail').textContent = 'Model: ' + (data.stats.models.join(', ') || '—') + ' · Công cụ: ' + data.stats.tool_calls + ' · Token vào/ra: ' + data.stats.tokens_in + '/' + data.stats.tokens_out + (data.fake ? ' · Kết quả ở chế độ giả.' : '');
+      $('empty').hidden = true; $('result').hidden = false;
+    } catch (error) { clearResult(); $('error').textContent = error.message === 'Failed to fetch' ? 'Mất kết nối với server. Kiểm tra terminal và thử lại.' : error.message; $('error').hidden = false; }
+    finally { busy = false; $('result-region').setAttribute('aria-busy', 'false'); document.querySelectorAll('button').forEach(button => button.disabled = false); $('message').disabled = false; $('submit').textContent = 'Phân tích khiếu nại →'; }
+  });
+  loadStatus();
+</script>
+</body>
+</html>
