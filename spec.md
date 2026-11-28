@@ -115,10 +115,10 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): Không dù
 - Kết quả: lượt 1 24/30 (80%) · lượt 2 28/30 (93%) — run ID: `run-1@20261127-225313` / `run-2@20261128-103935` → chi tiết `eval/report.md`, hồ sơ `eval/README.md`
 
 ## §8. Chi phí khi dùng thật *(guide 4.2)*
-- Persona + giá: `cost/personas.yaml` · lượt mô phỏng: `cost/simulate-__.csv` (__ phiên)
-- Chi phí / task thành công: __ (model __) · __ (model __)
-- Chi phí / tháng ở quy mô thật: thấp __ · cơ sở __ · cao __ → chi tiết `cost/cost-estimate.md`
-- So với impact / người / tháng (§2): đáng làm không, vì sao:
+- Persona và giá lấy từ `cost/personas.yaml`. Lượt [mô phỏng `simulate-1@20261128-110015`](cost/simulate-1.csv) có 50 phiên, seed 42, 0 phiên lỗi. Token đo trên `deepseek-flash`. Tỷ lệ dùng để tính lấy từ lượt 2 đã chấm, **28/30 (93,3%)**.
+- Chi phí/task thành công ước tính **0,00051 USD** với Flash và **0,0022 USD** khi áp giá Pro lên token Flash.
+- Chi phí/tháng ở kịch bản 10, 50 và 100 người dùng (tự ước tính) lần lượt là **0,0101 / 0,0504 / 0,1009 USD** với Flash và **0,0427 / 0,2133 / 0,4266 USD** theo giá Pro. Xem [báo cáo chi phí](cost/cost-estimate.md).
+- Ở kịch bản cơ sở, chi phí token của Flash là **0,0010 USD/người/tháng**. §2 ước tính hiện mất **26,4 phút xử lý/người gặp sự cố/tháng** trong mẫu. Đề xuất tiếp tục cải tiến và đo thời gian tiết kiệm cùng công duyệt trước khi kết luận hiệu quả kinh tế.
 
 ## §9. Rủi ro & an toàn
 - Dữ liệu: đã ẩn danh gì, không thu gì, không đưa gì vào model gói miễn phí: Dữ liệu đơn hàng (`DH001`–`DH018`), chính sách (hạn mức 100.000đ) là giả lập; phỏng vấn (`P1`–`P3`) và khảo sát đã bỏ tên, số điện thoại, email, mã đơn thật. Bản chạy thử không lưu lịch sử hội thoại, không thu thông tin định danh người dùng, không nối app thật. Không đưa API key (`.env` nằm trong `.gitignore`) hay dữ liệu cá nhân thật vào model (`deepseek-flash`).
@@ -141,6 +141,7 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): Không dù
 | 28/11/2026 00:16 · Thư | Bổ sung dòng đầu `P1.md`–`P3.md` (cách phỏng vấn, ngày giờ, người hỏi / ghi), kênh khảo sát trong `questions.md`, xác nhận người trả lời ngoài nhóm trong `summary.md`; canvas dòng 4 thêm số đã lọc 7/12 và giới hạn; bỏ chữ "nháp" ở §2 sau họp. Không đổi số liệu gốc. | Thiếu thông tin nguồn để kiểm bằng chứng; canvas dòng 4 còn dùng số chưa lọc. |
 | 28/11/2026 10:28 | Lần cải tiến trước lượt 2: sửa hai dòng luật `hoi_them` và `chuyen_nhan_vien` trong `SYSTEM` (`codebase/agent.py`): không tìm thấy đơn thì khiếu nại thiếu món hoặc thiếu thành phần đều hỏi thêm; luật chuyển vì thiếu thành phần chỉ áp dụng khi có đơn. Không đổi `rules.py`, chuẩn "đạt", metric, câu thử. | Lượt 1: B16, B18, B22, B24 chuyển nhân viên khi chỉ cần hỏi thêm (`eval/report.md` mục 2). |
 | 28/11/2026 10:39 | Sửa tiếp lần cải tiến trước lượt 2: thêm ngoại lệ vào luật `hoi_them` trong `SYSTEM`: món đã nhận nhưng bị vơi (nửa ly) vẫn chuyển nhân viên dù không tìm thấy đơn. | Thử khi phát triển với `deepseek-flash` (9 câu, không tính là lượt chạy): 8/9 đúng hướng, B23 chuyển sang hỏi thêm sau lần sửa trước. |
+| 28/11/2026 11:09 · Huy | Điền báo cáo chi phí và §8. | Dùng `simulate-1@20261128-110015` và tỷ lệ đạt 28/30 của lượt 2. |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 
