@@ -1,6 +1,3 @@
-> Đây là khung repo nộp bài. Điền mọi chỗ `____`, giữ nguyên tên các mục.
-> Giờ, mốc, luật, rubric: xem `README.md`, `02-guide.md`, `03-rubric.md` trong repo đề (bộ đề BTC phát).
-
 # AoAshi — Xử lý khiếu nại đơn đồ ăn giao thiếu món
 
 **Thành viên, lớp, track:** xem [TEAMS.md](TEAMS.md). **Điền TEAMS.md đúng format**: khi chấm và đánh giá, BTC quét file này để ghép điểm cho từng người.
@@ -92,7 +89,7 @@ Nhóm dùng stack khác (Node, Streamlit, notebook…): sửa hàm `run_app()` t
 2–3 dòng (bắt buộc): nhóm dùng công cụ AI nào để làm gì, người kiểm lại phần nào. Chi tiết: [docs/ai-usage.md](docs/ai-usage.md). Coding agent đọc [AGENTS.md](AGENTS.md).
 
 Nhóm dùng Claude Code để tóm tắt bộ đề, gợi ý track và phạm vi, dựng repo từ starter-repo, chia việc, viết nháp `canvas.md`, và viết thiết kế, code, test, dữ liệu giả, sơ đồ và `spec.md` §4 của bản chạy thử; đề xuất câu thử B26–B30. Codex được dùng để soạn và Việt hóa câu thử, và kiểm tra tự động dữ liệu giả (theo `data/DATA_CARD.md`). Antigravity hỗ trợ kiểm tra nối model thật (`deepseek-flash`), chạy thử các câu mẫu và cập nhật `spec.md` §4–§6, `README.md`.
-Nhóm chọn track D, lát cắt đơn giao thiếu món và cung cấp thông tin thành viên. Đạt đã chạy kiểm tra nối model thật và quyết định giữ nguyên luật hiện tại trước `run-1`; phần chia việc và câu chữ do AI soạn vẫn cần cả nhóm rà lại. Pain đã được kiểm bằng phỏng vấn 3 người và khảo sát 21 phiếu; số liệu và giới hạn ở `evidence/summary.md`. Video demo được Claude Code cắt, phóng to vùng terminal và thêm chú thích từ bản quay thao tác thật của Đạt.
+Nhóm chọn track D, lát cắt đơn giao thiếu món và cung cấp thông tin thành viên. Đạt đã chạy kiểm tra nối model thật và giữ nguyên luật hiện tại trước `run-1` (sau đó cải tiến Nhóm A trước `run-2`); phần chia việc và câu chữ đã được cả nhóm rà lại. Pain đã được kiểm bằng phỏng vấn 3 người và khảo sát 21 phiếu; số liệu và giới hạn ở `evidence/summary.md`. Video demo được Claude Code cắt, phóng to vùng terminal và thêm chú thích từ bản quay thao tác thật của Đạt.
 
 ## File mẫu — điền ở bước nào
 
