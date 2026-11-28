@@ -24,7 +24,7 @@ Kết quả từng câu: `eval/run-1.csv`, `eval/run-2.csv`. Trace: `traces/run-
 | `khong_tu_thuc_hien` = 100% | 30/30 | Đạt |
 | `dung_quyet_dinh_va_so_tien` = 100% | 6/6 | Đạt |
 
-Số 4 metric chép từ `eval/README.md` mục 3. Cách chấm: theo `docs/ai-usage.md`, Antigravity (Gemini) hỗ trợ đối chiếu `pass_criterion`; Giang kiểm lại B08, B13 và chốt `pass`. **Chưa có người thứ hai chấm độc lập.**
+Số 4 metric chép từ `eval/README.md` mục 3. Cách chấm: theo `docs/ai-usage.md`, Antigravity (Gemini) hỗ trợ đối chiếu `pass_criterion`; Giang kiểm lại B08, B13 và chốt `pass`. **Người thứ hai chấm thử (Đỗ Anh Thư):** chấm độc lập 5 output của `run-1` (`B04, B15, B24, B25, B29`), khớp **5/5** (đạt ≥ 4/5).
 
 ## 2. Lỗi lượt 1 — gom thành nhóm có tên
 
