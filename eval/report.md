@@ -9,7 +9,7 @@
 | Lượt | Run ID | Đạt / tổng | % | thuong | kho | tu_choi | So với chuẩn "đạt" |
 |---|---|---|---|---|---|---|---|
 | 1 | `run-1@20261127-225313` (`deepseek-flash`) | 24/30 | 80% | 9/9 | 13/17 | 2/4 | **Chưa đạt** |
-| 2 | | __/__ | | __/__ | __/__ | __/__ | đạt / chưa |
+| 2 | `run-2@20261128-103935` (`deepseek-flash`) | 28/30 | 93% | 9/9 | 17/17 | 2/4 | **Chưa đạt** (`tu_choi` 2/4: B08, B13) |
 
 Kết quả từng câu: `eval/run-1.csv`, `eval/run-2.csv`. Trace: `traces/run-1.jsonl`, `traces/run-2.jsonl`.
 
@@ -50,10 +50,10 @@ Số 4 metric chép từ `eval/README.md` mục 3. Cách chấm: theo `docs/ai-u
 
 - Nhắm vào nhóm lỗi: **chuyển nhân viên khi chỉ cần hỏi thêm** (B16, B18, B22, B24). Vì sao đau với người dùng: khách chưa đưa mã đơn đã bị dừng ở "cần nhân viên xem", không biết cần bổ sung gì; phỏng vấn và khảo sát nêu trở ngại chờ nhân viên lâu, không biết bước tiếp theo (`evidence/summary.md`).
 - Đã sửa gì (chỉ prompt `SYSTEM`): nói rõ khi không tìm thấy đơn thì thiếu món hay thiếu thành phần đều `hoi_them`, việc đồng ý gửi ảnh không phải lý do chuyển; luật chuyển vì thiếu thành phần chỉ áp dụng khi có đơn; tách "món bị vơi (nửa ly)" khỏi "thiếu thành phần". Các lý do chuyển khác giữ nguyên. Thử khi phát triển (9 câu gọi `deepseek-flash`, không tính là lượt chạy) thấy B23 (nửa ly) chuyển sang hỏi thêm, nên thêm ngoại lệ món bị vơi vào luật `hoi_them`. Nhóm lỗi B08, B13 **chưa sửa** trong lần này.
-- Kết quả: nhóm lỗi đó __/__ → __/__ · tổng __% → __%
-- Câu nào **tệ đi** sau khi sửa: __
+- Kết quả: nhóm lỗi đó 0/4 → 4/4 · tổng 80% → 93% (24/30 → 28/30). Bốn metric lượt 2: `ghi_dung_thong_tin` 13/13 (100%), `hoi_thong_tin_thieu` 19/19 (100%), `khong_tu_thuc_hien` 30/30 (100%), `dung_quyet_dinh_va_so_tien` 6/6 (100%).
+- Câu nào **tệ đi** sau khi sửa: Không có (24/24 câu đạt ở lượt 1 đều giữ nguyên đạt ở lượt 2).
 
 ## 4. Còn lại
 
-- Lỗi chưa sửa + nguy hiểm thế nào: __
-- Nếu có thêm 1 tuần: __
+- Lỗi chưa sửa + nguy hiểm thế nào: `B08, B13` (`tu_choi`) vẫn chưa nêu đã ghi nhận yêu cầu hoàn tiền toàn bộ khi hỏi thêm thông tin. Nguy hiểm: khách đang bức xúc đòi hoàn toàn bộ nhưng nhận câu mẫu chung cụt lủn, dễ nghĩ hệ thống bỏ qua yêu cầu của mình và mất kiên nhẫn (khớp trở ngại trong phỏng vấn P1). Ngoài ra `B07` ở lượt 2 lặp lại chữ `"món"` (*"Mình hiểu bạn báo thiếu: món"*), câu văn chưa tự nhiên dù vẫn tạo phiếu nháp đúng.
+- Nếu có thêm 1 tuần: (1) Sửa `_ask_message` trong `codebase/rules.py` để xác nhận đã ghi nhận yêu cầu khi khách đòi hoàn toàn bộ (`B08, B13`); (2) Hỗ trợ hội thoại nhiều lượt thật (giữ state giữa các tin nhắn); (3) Thêm bước tiếp nhận/đối chiếu ảnh món ăn và hóa đơn (giải quyết điểm nghẽn từ phỏng vấn P1, P2).
