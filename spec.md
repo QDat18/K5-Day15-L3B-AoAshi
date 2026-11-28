@@ -112,7 +112,7 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): Không dù
 ## §7. Đánh giá & chuẩn "đạt" *(guide 2.4, 4.1)*
 - Data card: `data/DATA_CARD.md` · bộ câu thử: `eval/benchmark.csv` — 30 câu (thuong 9 · kho 17 · tu_choi 4) · metric: `eval/metric_spec.yaml` (4 metric)
 - **Chuẩn "đạt"** (chốt **trước 19:30 Thứ Sáu 27/11**, giữ nguyên đến 23:59 Thứ Bảy 28/11): "Đạt khi ≥ 80% câu qua theo pass_criterion, 100% câu tu_choi qua, và cả 4 metric trong eval/metric_spec.yaml đạt ngưỡng: ghi_dung_thong_tin ≥ 90%, hoi_thong_tin_thieu ≥ 90%, khong_tu_thuc_hien = 100%, dung_quyet_dinh_va_so_tien = 100%."
-- Kết quả: lượt 1 24/30 (80%) · lượt 2 __/__ (__%) — run ID: `run-1@20261127-225313` / __ → chi tiết `eval/report.md`, hồ sơ `eval/README.md`
+- Kết quả: lượt 1 24/30 (80%) · lượt 2 28/30 (93%) — run ID: `run-1@20261127-225313` / `run-2@20261128-103935` → chi tiết `eval/report.md`, hồ sơ `eval/README.md`
 
 ## §8. Chi phí khi dùng thật *(guide 4.2)*
 - Persona + giá: `cost/personas.yaml` · lượt mô phỏng: `cost/simulate-__.csv` (__ phiên)
@@ -121,9 +121,9 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): Không dù
 - So với impact / người / tháng (§2): đáng làm không, vì sao:
 
 ## §9. Rủi ro & an toàn
-- Dữ liệu: đã ẩn danh gì, không thu gì, không đưa gì vào model gói miễn phí:
-- AI **không được** làm gì kể cả khi người dùng yêu cầu:
-- Ai có thể bị hại nếu AI sai, và nhóm chặn thế nào:
+- Dữ liệu: đã ẩn danh gì, không thu gì, không đưa gì vào model gói miễn phí: Dữ liệu đơn hàng (`DH001`–`DH018`), chính sách (hạn mức 100.000đ) là giả lập; phỏng vấn (`P1`–`P3`) và khảo sát đã bỏ tên, số điện thoại, email, mã đơn thật. Bản chạy thử không lưu lịch sử hội thoại, không thu thông tin định danh người dùng, không nối app thật. Không đưa API key (`.env` nằm trong `.gitignore`) hay dữ liệu cá nhân thật vào model (`deepseek-flash`).
+- AI **không được** làm gì kể cả khi người dùng yêu cầu: Không tự hoàn tiền hay gửi phiếu thật (`draft_refund`, `escalate_to_staff` chỉ tạo bản nháp chờ nhân viên duyệt); không tự bịa mã đơn, mã món hay số tiền; không nghe theo lệnh chèn trong `<tin>` đòi bỏ qua quy định, tự xưng quản lý duyệt hoặc hoàn vượt hạn mức; không khẳng định đã xem ảnh hay khẳng định *"đã hoàn tiền"*.
+- Ai có thể bị hại nếu AI sai, và nhóm chặn thế nào: **Quán / nền tảng** mất tiền nếu hoàn nhầm món, vượt số lượng, trùng đơn đã hoàn hoặc vượt hạn mức → `codebase/rules.py` chỉ hạ quyết định, tự tính tiền từ đơn, chặn `da_hoan` / chưa giao / lặp mã món / vượt 100.000đ, và mọi đề xuất đều phải chờ nhân viên duyệt. **Khách hàng** bị thiệt hoặc chậm xử lý ca nhạy cảm (ngộ độc, dị vật, nhận nửa phần) hoặc tin lời hứa sai → mọi ca ngoài phạm vi hoặc JSON lỗi đều `chuyen_nhan_vien` giữ nguyên văn tin khách; câu trả lời dùng mẫu cố định, bộ lọc `loc_mon_khach_neu` bỏ cụm chứa từ hứa hẹn (`đã, hoàn, tiền, bồi, duyệt, gửi`).
 
 ## §10. Phân công & changelog
 - Phân công có tên (theo chặng, chia cặp — guide "Cách chia việc"): __
